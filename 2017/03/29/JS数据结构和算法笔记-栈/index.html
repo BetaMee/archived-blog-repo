@@ -84,25 +84,19 @@
 
 
 
-<meta name="description" content="这两天接触最多的思考的是同构JavaScript，”Universal JavaScript application”。所谓的同构，就是前后端复用一套代码。初始化的时候在服务端渲染好页面和数据，发送到客户端，后期客户端获取数据渲染，并且是无刷新的SPA单页应用。
-这样解决了以下的问题：
-
-首屏渲染问题。如果前后端彻底分离，后端只是个发送数据的接口，而初始状态下js文件的加载和获取数据都在客户端上完">
+<meta name="description" content="#3.1 栈的创建
+12345678910111213141516171819202122232425function Stack()&amp;#123;    var items=[];    this.push=function(element)&amp;#123;//入栈        items.push(element);    &amp;#125;        this.pop=function()&amp;#12">
 <meta property="og:type" content="article">
-<meta property="og:title" content="同构JavaScript应用思考">
-<meta property="og:url" content="https://betamee.github.io/2017/02/17/同构JavaScript应用思考/index.html">
+<meta property="og:title" content="JS数据结构和算法笔记|2.栈">
+<meta property="og:url" content="https://betamee.github.io/2017/03/29/JS数据结构和算法笔记-栈/index.html">
 <meta property="og:site_name" content="十二棵橡树">
-<meta property="og:description" content="这两天接触最多的思考的是同构JavaScript，”Universal JavaScript application”。所谓的同构，就是前后端复用一套代码。初始化的时候在服务端渲染好页面和数据，发送到客户端，后期客户端获取数据渲染，并且是无刷新的SPA单页应用。
-这样解决了以下的问题：
-
-首屏渲染问题。如果前后端彻底分离，后端只是个发送数据的接口，而初始状态下js文件的加载和获取数据都在客户端上完">
-<meta property="og:updated_time" content="2017-03-11T05:26:22.000Z">
+<meta property="og:description" content="#3.1 栈的创建
+12345678910111213141516171819202122232425function Stack()&amp;#123;    var items=[];    this.push=function(element)&amp;#123;//入栈        items.push(element);    &amp;#125;        this.pop=function()&amp;#12">
+<meta property="og:updated_time" content="2017-03-29T16:07:20.114Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="同构JavaScript应用思考">
-<meta name="twitter:description" content="这两天接触最多的思考的是同构JavaScript，”Universal JavaScript application”。所谓的同构，就是前后端复用一套代码。初始化的时候在服务端渲染好页面和数据，发送到客户端，后期客户端获取数据渲染，并且是无刷新的SPA单页应用。
-这样解决了以下的问题：
-
-首屏渲染问题。如果前后端彻底分离，后端只是个发送数据的接口，而初始状态下js文件的加载和获取数据都在客户端上完">
+<meta name="twitter:title" content="JS数据结构和算法笔记|2.栈">
+<meta name="twitter:description" content="#3.1 栈的创建
+12345678910111213141516171819202122232425function Stack()&amp;#123;    var items=[];    this.push=function(element)&amp;#123;//入栈        items.push(element);    &amp;#125;        this.pop=function()&amp;#12">
 
 
 
@@ -130,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="https://betamee.github.io/2017/02/17/同构JavaScript应用思考/"/>
+  <link rel="canonical" href="https://betamee.github.io/2017/03/29/JS数据结构和算法笔记-栈/"/>
 
 
 
 
 
-  <title> 同构JavaScript应用思考 | 十二棵橡树 </title>
+  <title> JS数据结构和算法笔记|2.栈 | 十二棵橡树 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +253,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/02/17/同构JavaScript应用思考/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/03/29/JS数据结构和算法笔记-栈/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -283,7 +277,7 @@
             
             
               
-                同构JavaScript应用思考
+                JS数据结构和算法笔记|2.栈
               
             
           </h1>
@@ -298,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-17T00:53:26+08:00">
-                2017-02-17
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T23:59:35+08:00">
+                2017-03-29
               </time>
             
 
@@ -321,8 +315,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JSTheWorld/" itemprop="url" rel="index">
-                    <span itemprop="name">JSTheWorld</span>
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithms</span>
                   </a>
                 </span>
 
@@ -356,20 +350,11 @@
       
 
       
-        <p>这两天接触最多的思考的是同构JavaScript，”Universal JavaScript application”。所谓的同构，就是前后端复用一套代码。初始化的时候在服务端渲染好页面和数据，发送到客户端，后期客户端获取数据渲染，并且是无刷新的SPA单页应用。</p>
-<p>这样解决了以下的问题：</p>
-<ol>
-<li>首屏渲染问题。如果前后端彻底分离，后端只是个发送数据的接口，而初始状态下js文件的加载和获取数据都在客户端上完成，带来的问题是初始加载速度慢，影响性能。</li>
-<li></li>
-</ol>
-<p>以React技术栈为主，需要学习React构件界面，React-Router管理路由状态，React-Redux管理state，Immuntable.js优化React数据运算性能，Webpack进行打包，Express作后端框架。</p>
-<p>困惑：</p>
-<ol>
-<li>如何合理的设计state，来运用redux管理应用的状态</li>
-<li>如何合理的管理路由状态，达到前后端一致</li>
-<li>前后端数据的交流方式</li>
-<li>服务端渲染的过程</li>
-</ol>
+        <p>#3.1 栈的创建</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Stack</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> items=[];</div><div class="line">    <span class="keyword">this</span>.push=<span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;<span class="comment">//入栈</span></div><div class="line">        items.push(element);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">this</span>.pop=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//出栈</span></div><div class="line">       <span class="keyword">return</span> items.pop();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.peek=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//返回栈顶元素</span></div><div class="line">       <span class="keyword">return</span> items[items.length<span class="number">-1</span>];     </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.isEmpty=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//判断是否为空</span></div><div class="line">       <span class="keyword">return</span> items.length == <span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.size=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//返回栈的尺寸</span></div><div class="line">       <span class="keyword">return</span> items.length;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.clear=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//清除栈</span></div><div class="line">       items=[];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.print=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;<span class="comment">//打印栈的内容</span></div><div class="line">       <span class="built_in">console</span>.log(items.toString());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>#3.2 栈的使用举例</p>
+<p>##十进制到二进制转换<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">divdeBy2</span>(<span class="params">decNumber</span>)</span>&#123;</div><div class="line">     <span class="keyword">var</span> remStack=<span class="keyword">new</span> Stack(),</div><div class="line">         rem,</div><div class="line">         binaryString=<span class="string">""</span>;</div><div class="line">     <span class="keyword">while</span>(decNumber&gt;<span class="number">0</span>)&#123;</div><div class="line">         rem=<span class="built_in">Math</span>.floor(decNumber%<span class="number">2</span>);<span class="comment">//余数入栈，先入栈的为低位</span></div><div class="line">         remStack.push(rem);</div><div class="line">         decNumber=<span class="built_in">Math</span>.floor(decNumber/<span class="number">2</span>);</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="keyword">while</span>(!remStack.isEmpty())&#123;</div><div class="line">         binaryString+=remStack.pop().toString();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="keyword">return</span> binaryString;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(divdeBy2(<span class="number">233</span>));<span class="comment">//=&gt;11101001</span></div></pre></td></tr></table></figure></p>
+<p>##任意进制<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">baseConverter</span>(<span class="params">decNumber,base</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> remStack=<span class="keyword">new</span> Stack(),</div><div class="line">        baseString=<span class="string">''</span>,</div><div class="line">        digits=<span class="string">'0123456789ABCDEF'</span>;</div><div class="line">    </div><div class="line">    <span class="keyword">while</span>(decNumber&gt;<span class="number">0</span>)&#123;</div><div class="line">        rem=<span class="built_in">Math</span>.floor(decNumber%base);</div><div class="line">        remStack.push(rem);</div><div class="line">        decNumber=<span class="built_in">Math</span>.floor(decNumber/base);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">while</span>(!remStack.isEmpty())&#123;</div><div class="line">        baseString+=digits[remStack.pop()];</div><div class="line">    &#125;  </div><div class="line"></div><div class="line">    <span class="keyword">return</span> baseString;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(baseConverter(<span class="number">15</span>,<span class="number">8</span>));<span class="comment">//=&gt;17</span></div><div class="line"><span class="built_in">console</span>.log(baseConverter(<span class="number">15</span>,<span class="number">16</span>));<span class="comment">//=&gt;F</span></div></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -396,8 +381,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/02/14/收藏的文章系列/" rel="next" title="收藏的文章系列">
-                <i class="fa fa-chevron-left"></i> 收藏的文章系列
+              <a href="/2017/03/29/JS数据结构和算法笔记-集合/" rel="next" title="JS数据结构和算法笔记|5.集合">
+                <i class="fa fa-chevron-left"></i> JS数据结构和算法笔记|5.集合
               </a>
             
           </div>
@@ -406,8 +391,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/03/11/JavaScript对象知识笔记/" rel="prev" title="JavaScript对象知识笔记">
-                JavaScript对象知识笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/03/30/JS数据结构和算法笔记-字典和散列表/" rel="prev" title="JS数据结构和算法笔记|6.字典和散列表">
+                JS数据结构和算法笔记|6.字典和散列表 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
