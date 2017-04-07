@@ -251,6 +251,149 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/03/29/JS数据结构和算法笔记-队列/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="橡树上">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="十二棵橡树">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/03/29/JS数据结构和算法笔记-队列/" itemprop="url">
+                  JS数据结构和算法笔记|4.队列
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-29T23:54:00+08:00">
+                2017-03-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Algorithms/" itemprop="url" rel="index">
+                    <span itemprop="name">Algorithms</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="4-1-队列的创建"><a href="#4-1-队列的创建" class="headerlink" title="4.1 队列的创建"></a>4.1 队列的创建</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Queue</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> items=[];</div><div class="line">    </div><div class="line">    <span class="keyword">this</span>.enqueue=<span class="function"><span class="keyword">function</span>(<span class="params">element</span>)</span>&#123;</div><div class="line">        items.push(element);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.dequeue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> items.shift();</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.front=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> items[<span class="number">0</span>];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.isEmpty=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> items.length==<span class="number">0</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.size=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="keyword">return</span> items.length;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.clear=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        items=[];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.print=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">        <span class="built_in">console</span>.log(items.toString());</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="4-2-队列的其他版本：最小优先队列"><a href="#4-2-队列的其他版本：最小优先队列" class="headerlink" title="4.2 队列的其他版本：最小优先队列"></a>4.2 队列的其他版本：最小优先队列</h1><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">PriorityQueue</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> items=[];</div><div class="line">    </div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">QueueElement</span>(<span class="params">element,priority</span>)</span>&#123;</div><div class="line">    <span class="comment">//队列元素，假设priority越大优先级越低</span></div><div class="line">        <span class="keyword">this</span>.element=element;</div><div class="line">        <span class="keyword">this</span>.priority=priority;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="comment">//由优先级插入元素</span></div><div class="line">    <span class="keyword">this</span>.enqueue=<span class="function"><span class="keyword">function</span>(<span class="params">element,priority</span>)</span>&#123;</div><div class="line">        <span class="keyword">var</span> queueElement=<span class="keyword">new</span> QueueElement(element,priority);</div><div class="line">        </div><div class="line">        <span class="keyword">if</span>(<span class="keyword">this</span>.isEmpty())&#123;</div><div class="line">            items.push(queueElement);</div><div class="line">        &#125;<span class="keyword">else</span>&#123;</div><div class="line">            <span class="keyword">var</span> added=<span class="literal">false</span>;</div><div class="line">            <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;items.length;i++)&#123;</div><div class="line">                <span class="keyword">if</span>(queueElement.priority&lt;items[i].priority)&#123;</div><div class="line">                    <span class="comment">//当找到一个值更大的，则插入到之前，用splice()方法</span></div><div class="line">                    items.splice(i,<span class="number">0</span>,queueElement);</div><div class="line">                    added=<span class="literal">true</span>;</div><div class="line">                    <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span>(!added)&#123;<span class="comment">//否则就插入到后面</span></div><div class="line">                items.push(queueElement);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="4-3-循环队列"><a href="#4-3-循环队列" class="headerlink" title="4.3 循环队列"></a>4.3 循环队列</h1><p>模拟击鼓传花，围成一圈，花循环传递，某一时刻传花停止，这个时候花在谁手里谁就退出游戏。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">hotPotata</span>(<span class="params">nameList,num</span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> queue=<span class="keyword">new</span> Queue();</div><div class="line">    </div><div class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i=;i&lt;nameList.length;i++)&#123;</div><div class="line">        queue.enqueue(nameList[i]);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> eliminated=<span class="string">''</span>;</div><div class="line">    <span class="keyword">while</span>(queue.size()&gt;<span class="number">1</span>)&#123;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">let</span> i=<span class="number">0</span>;i&lt;num;i++)&#123;</div><div class="line">            queue.enqueue(queue.dequeue());</div><div class="line">        &#125;</div><div class="line">        eliminated=queue.dequeue();</div><div class="line">        <span class="built_in">console</span>.log(eliminated+<span class="string">'在击鼓传花游戏中被淘汰'</span>);</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> queue.dequeue();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> names=[<span class="string">'Jhon'</span>,<span class="string">'Jack'</span>,<span class="string">'Camlia'</span>,<span class="string">'Ingrid'</span>,<span class="string">'Carl'</span>];</div><div class="line"><span class="keyword">var</span> winner=hotPotato(names,<span class="number">7</span>);</div><div class="line"><span class="built_in">console</span>.log(<span class="string">'胜利者：'</span>+winner);</div></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/03/29/JS数据结构和算法笔记-数组/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -396,7 +539,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/03/11/JavaScript对象知识笔记/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/02/17/Projects-同构JavaScript应用思考/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -421,164 +564,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/03/11/JavaScript对象知识笔记/" itemprop="url">
-                  JavaScript对象知识笔记
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-11T16:06:23+08:00">
-                2017-03-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BasisNotes/" itemprop="url" rel="index">
-                    <span itemprop="name">BasisNotes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="1-构造器属性"><a href="#1-构造器属性" class="headerlink" title="1.构造器属性"></a>1.构造器属性</h2><hr>
-<p>任何一个对象都有一个constructor属性，称为构造器属性（constructor property），下面是几种属性写法构造器属性。</p>
-<p>当是一个空对象{}时，它的指向是<code>Object()</code>类函数所创建。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> a = &#123;&#125;</div><div class="line"><span class="built_in">console</span>.log(a.constructor);</div><div class="line"><span class="comment">// =&gt;function Object() &#123; [native code] &#125;</span></div></pre></td></tr></table></figure></p>
-<p>当是一个自建的一个构造函数，则指向自身。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> = <span class="title">Hello</span>(<span class="params">name</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> b = <span class="keyword">new</span> Hello(<span class="string">"Jim"</span>);</div><div class="line"><span class="built_in">console</span>.log(b.constructor);</div><div class="line"><span class="comment">// =&gt; function Hello(name)&#123;this.name=name;&#125;</span></div></pre></td></tr></table></figure></p>
-<p>如果是一个函数的话，就会发现它是一个<code>Function()</code>类。<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> c = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="number">1</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(c.constructor);</div><div class="line"><span class="comment">//  =&gt; function Function() &#123; [native code] &#125;</span></div></pre></td></tr></table></figure></p>
-<p>如果是一个正则表达式，则是这样的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> d =<span class="regexp">/^gg$/</span>;</div><div class="line"><span class="built_in">console</span>.log(d.constructor);</div><div class="line"><span class="comment">// =&gt;function RegExp() &#123; [native code] &#125;</span></div></pre></td></tr></table></figure></p>
-<p>数组是这样的：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> e = [];</div><div class="line"><span class="built_in">console</span>.log(e.constructor);</div><div class="line"><span class="comment">// =&gt;function Array() &#123; [native code] &#125;</span></div></pre></td></tr></table></figure></p>
-<p>以上说明对象的constructor属性要么指向Object(),要么指向自身构造器，但自身的构造器说到底也指向Object(),因为这可以看成一切对象的祖宗。而函数的constructor指向Function()。</p>
-<p>使用instanceof操作符可以判断一个对象（或者说一个引用类型）是不是某个指定的构造器创建的。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Hello</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//</span></div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> a =<span class="keyword">new</span> Hello();</div><div class="line"></div><div class="line"><span class="keyword">var</span> b= &#123;&#125;;</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> Hello);<span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(a <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(b <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>确实可以看出a是Hello的实例，也是Object的实例，存在某种继承关系。</p>
-<p>继续深入则会发现一些奇怪的事…未完</p>
-<p>总结几点:</p>
-<ul>
-<li>所有的构造器（Array、RegExp、Function）用typeof来检查都是object</li>
-<li>基本类型没有instanceof，使用typeof则会显示对应的类型</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/02/17/同构JavaScript应用思考/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="橡树上">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="十二棵橡树">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/17/同构JavaScript应用思考/" itemprop="url">
+                <a class="post-title-link" href="/2017/02/17/Projects-同构JavaScript应用思考/" itemprop="url">
                   同构JavaScript应用思考
                 </a>
               
@@ -618,8 +604,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/JSTheWorld/" itemprop="url" rel="index">
-                    <span itemprop="name">JSTheWorld</span>
+                  <a href="/categories/ProjectsLogs/" itemprop="url" rel="index">
+                    <span itemprop="name">ProjectsLogs</span>
                   </a>
                 </span>
 
@@ -707,7 +693,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/02/14/收藏的文章系列/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/02/14/Issues-收藏的文章系列/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -732,7 +718,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/02/14/收藏的文章系列/" itemprop="url">
+                <a class="post-title-link" href="/2017/02/14/Issues-收藏的文章系列/" itemprop="url">
                   收藏的文章系列
                 </a>
               
@@ -772,8 +758,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/LifeLogs/" itemprop="url" rel="index">
-                    <span itemprop="name">LifeLogs</span>
+                  <a href="/categories/Issues/" itemprop="url" rel="index">
+                    <span itemprop="name">Issues</span>
                   </a>
                 </span>
 
@@ -849,7 +835,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/01/29/使用CSS布局的基础知识/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/01/29/CSS基础-使用CSS布局的基础知识/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -874,7 +860,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/29/使用CSS布局的基础知识/" itemprop="url">
+                <a class="post-title-link" href="/2017/01/29/CSS基础-使用CSS布局的基础知识/" itemprop="url">
                   使用CSS布局的基础知识
                 </a>
               
@@ -914,8 +900,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/WebDesignLogs/" itemprop="url" rel="index">
-                    <span itemprop="name">WebDesignLogs</span>
+                  <a href="/categories/CSSTricks/" itemprop="url" rel="index">
+                    <span itemprop="name">CSSTricks</span>
                   </a>
                 </span>
 
@@ -1018,7 +1004,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/01/22/旧的不去，新的不来/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/01/22/Life-旧的不去，新的不来/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -1043,7 +1029,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/01/22/旧的不去，新的不来/" itemprop="url">
+                <a class="post-title-link" href="/2017/01/22/Life-旧的不去，新的不来/" itemprop="url">
                   旧的不去，新的不来
                 </a>
               
@@ -1211,7 +1197,7 @@
           
             <div class="site-state-item site-state-categories">
               <a href="/categories">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">7</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
