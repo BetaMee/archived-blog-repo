@@ -84,24 +84,25 @@
 
 
 
-<meta name="description" content="万维网WWW万维网是一个大规模的、联机式的信息存储所。万维网用链接的方法能非常方便的从因特网上的一个站点跳到另一个站点，从而主动获取丰富的信息。这种方式称为”链接”
-URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;:&amp;lt;端口&amp;gt;/&amp;lt;路径&amp;gt;
-使用HTTP协议的一般为：http://&amp;lt;主机&amp;gt;:&amp;lt;端口&amp;gt;/&amp;lt;路径&amp;gt;,端口一般为">
+<meta name="description" content="运输层的一些概念从通信和信息处理的角度看，运输层向它上面的应用层提供通信服务，属于面向通信部分的最高层，也是用户功能中的最底层。
+两个主机之间的通信实际上是主机之间的应用进程通信，从运输层角度看，通信的真正端点不是主机而是主机中的进程。
+运输层有一个重要的功能：复用和分用。复用是指应用层的进程都能使用同一个运输层协议传送数据，分用是指接收方的运输层接收到数据后能正确的把数据交付目的应用进程。
+用户">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机网络-应用层">
-<meta property="og:url" content="https://betamee.github.io/2017/04/08/计算机网络-应用层/index.html">
+<meta property="og:title" content="计算机网络-运输层">
+<meta property="og:url" content="https://betamee.github.io/2017/04/21/计算机网络-运输层/index.html">
 <meta property="og:site_name" content="十二棵橡树">
-<meta property="og:description" content="万维网WWW万维网是一个大规模的、联机式的信息存储所。万维网用链接的方法能非常方便的从因特网上的一个站点跳到另一个站点，从而主动获取丰富的信息。这种方式称为”链接”
-URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;:&amp;lt;端口&amp;gt;/&amp;lt;路径&amp;gt;
-使用HTTP协议的一般为：http://&amp;lt;主机&amp;gt;:&amp;lt;端口&amp;gt;/&amp;lt;路径&amp;gt;,端口一般为">
-<meta property="og:image" content="https://betamee.github.io/2017/04/08/计算机网络-应用层/http过程.png">
-<meta property="og:updated_time" content="2017-04-09T02:49:41.286Z">
+<meta property="og:description" content="运输层的一些概念从通信和信息处理的角度看，运输层向它上面的应用层提供通信服务，属于面向通信部分的最高层，也是用户功能中的最底层。
+两个主机之间的通信实际上是主机之间的应用进程通信，从运输层角度看，通信的真正端点不是主机而是主机中的进程。
+运输层有一个重要的功能：复用和分用。复用是指应用层的进程都能使用同一个运输层协议传送数据，分用是指接收方的运输层接收到数据后能正确的把数据交付目的应用进程。
+用户">
+<meta property="og:updated_time" content="2017-04-21T11:35:31.543Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="计算机网络-应用层">
-<meta name="twitter:description" content="万维网WWW万维网是一个大规模的、联机式的信息存储所。万维网用链接的方法能非常方便的从因特网上的一个站点跳到另一个站点，从而主动获取丰富的信息。这种方式称为”链接”
-URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;:&amp;lt;端口&amp;gt;/&amp;lt;路径&amp;gt;
-使用HTTP协议的一般为：http://&amp;lt;主机&amp;gt;:&amp;lt;端口&amp;gt;/&amp;lt;路径&amp;gt;,端口一般为">
-<meta name="twitter:image" content="https://betamee.github.io/2017/04/08/计算机网络-应用层/http过程.png">
+<meta name="twitter:title" content="计算机网络-运输层">
+<meta name="twitter:description" content="运输层的一些概念从通信和信息处理的角度看，运输层向它上面的应用层提供通信服务，属于面向通信部分的最高层，也是用户功能中的最底层。
+两个主机之间的通信实际上是主机之间的应用进程通信，从运输层角度看，通信的真正端点不是主机而是主机中的进程。
+运输层有一个重要的功能：复用和分用。复用是指应用层的进程都能使用同一个运输层协议传送数据，分用是指接收方的运输层接收到数据后能正确的把数据交付目的应用进程。
+用户">
 
 
 
@@ -129,13 +130,13 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
 
 
 
-  <link rel="canonical" href="https://betamee.github.io/2017/04/08/计算机网络-应用层/"/>
+  <link rel="canonical" href="https://betamee.github.io/2017/04/21/计算机网络-运输层/"/>
 
 
 
 
 
-  <title> 计算机网络-应用层 | 十二棵橡树 </title>
+  <title> 计算机网络-运输层 | 十二棵橡树 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -258,7 +259,7 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/08/计算机网络-应用层/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/21/计算机网络-运输层/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -282,7 +283,7 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
             
             
               
-                计算机网络-应用层
+                计算机网络-运输层
               
             
           </h1>
@@ -297,8 +298,8 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-08T17:01:40+08:00">
-                2017-04-08
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-21T16:44:01+08:00">
+                2017-04-21
               </time>
             
 
@@ -355,32 +356,11 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
       
 
       
-        <h1 id="万维网WWW"><a href="#万维网WWW" class="headerlink" title="万维网WWW"></a>万维网WWW</h1><p>万维网是一个大规模的、联机式的信息存储所。万维网用链接的方法能非常方便的从因特网上的一个站点跳到另一个站点，从而主动获取丰富的信息。这种方式称为”链接”</p>
-<h1 id="URL统一资源定位符"><a href="#URL统一资源定位符" class="headerlink" title="URL统一资源定位符"></a>URL统一资源定位符</h1><p>格式：<code>&lt;协议&gt;://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</code></p>
-<p>使用HTTP协议的一般为：<code>http://&lt;主机&gt;:&lt;端口&gt;/&lt;路径&gt;</code>,端口一般为80。</p>
-<h1 id="HTTP（参考谢希仁版计算机网络）"><a href="#HTTP（参考谢希仁版计算机网络）" class="headerlink" title="HTTP（参考谢希仁版计算机网络）"></a>HTTP（参考谢希仁版计算机网络）</h1><h2 id="特点："><a href="#特点：" class="headerlink" title="特点："></a>特点：</h2><ul>
-<li>面向事务（transaction-oriented）</li>
-<li>无状态</li>
-<li>本身无连接，使用的是TCP向上提供的服务</li>
-</ul>
-<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><img src="/2017/04/08/计算机网络-应用层/http过程.png" alt="http过程" title="http过程">
-<h2 id="点击鼠标发生的事件"><a href="#点击鼠标发生的事件" class="headerlink" title="点击鼠标发生的事件"></a>点击鼠标发生的事件</h2><blockquote>
-<p>(1) 浏览器分析超链指向页面的 URL。</p>
-<p>(2) 浏览器向 DNS 请求解析 www.tsinghua.edu.cn 的 IP 地址。</p>
-<p>(3) 域名系统 DNS 解析出清华大学服务器的 IP 地址。</p>
-<p>(4) 浏览器与服务器建立 TCP 连接</p>
-<p>(5) 浏览器发出取文件命令： GET /chn/yxsz/index.htm。</p>
-<p>(6) 服务器给出响应，把文件 index.htm 发给浏览器。</p>
-<p>(7) TCP 连接释放。</p>
-<p>(8) 浏览器显示”清华大学院系设置”文件 index.htm 中的所有文本。</p>
-</blockquote>
-<h2 id="所需时间"><a href="#所需时间" class="headerlink" title="所需时间"></a>所需时间</h2><ul>
-<li><p>HTTP1.0时代，发送一个请求收到响应后就断了，无法持续链接。</p>
-</li>
-<li><p>HTTP1.1时代，可以支持持续连接，并且使用的是流水线管道方式，也就是只要一个TCP连接成功后，后续的请求可以持续不断发送，而无需等待前一个请求处理完后再处理后面的请求。</p>
-</li>
-</ul>
-<h2 id="HTTP报文结构"><a href="#HTTP报文结构" class="headerlink" title="HTTP报文结构"></a>HTTP报文结构</h2>
+        <h2 id="运输层的一些概念"><a href="#运输层的一些概念" class="headerlink" title="运输层的一些概念"></a>运输层的一些概念</h2><p>从通信和信息处理的角度看，<strong>运输层向它上面的应用层提供通信服务</strong>，属于面向通信部分的最高层，也是用户功能中的最底层。</p>
+<p>两个主机之间的通信实际上是<strong>主机之间的应用进程</strong>通信，从运输层角度看，通信的真正端点不是主机而是主机中的进程。</p>
+<p>运输层有一个重要的功能：<strong>复用</strong>和<strong>分用</strong>。复用是指应用层的进程都能使用同一个运输层协议传送数据，分用是指接收方的运输层接收到数据后能正确的把数据交付目的应用进程。</p>
+<h2 id="用户数据报协议UDP（User-Datagram-Protocol）"><a href="#用户数据报协议UDP（User-Datagram-Protocol）" class="headerlink" title="用户数据报协议UDP（User Datagram Protocol）"></a>用户数据报协议UDP（User Datagram Protocol）</h2><h2 id="传输控制协议TCP（Transmission-Control-Protocol）"><a href="#传输控制协议TCP（Transmission-Control-Protocol）" class="headerlink" title="传输控制协议TCP（Transmission Control Protocol）"></a>传输控制协议TCP（Transmission Control Protocol）</h2><p>面向连接</p>
+
       
     </div>
 
@@ -406,8 +386,8 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/04/07/Issue-从Animatelo库分析其中的设计模式/" rel="next" title="Issue-从Animatelo库分析其中的设计模式">
-                <i class="fa fa-chevron-left"></i> Issue-从Animatelo库分析其中的设计模式
+              <a href="/2017/04/21/计算机网络-P2P/" rel="next" title="计算机网络-P2P">
+                <i class="fa fa-chevron-left"></i> 计算机网络-P2P
               </a>
             
           </div>
@@ -416,8 +396,8 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/04/21/计算机网络-P2P/" rel="prev" title="计算机网络-P2P">
-                计算机网络-P2P <i class="fa fa-chevron-right"></i>
+              <a href="/2017/04/25/Life-前端学习的思考/" rel="prev" title="Life-前端学习的思考">
+                Life-前端学习的思考 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -561,7 +541,7 @@ URL统一资源定位符格式：&amp;lt;协议&amp;gt;://&amp;lt;主机&amp;gt;
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#万维网WWW"><span class="nav-number">1.</span> <span class="nav-text">万维网WWW</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#URL统一资源定位符"><span class="nav-number">2.</span> <span class="nav-text">URL统一资源定位符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#HTTP（参考谢希仁版计算机网络）"><span class="nav-number">3.</span> <span class="nav-text">HTTP（参考谢希仁版计算机网络）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#特点："><span class="nav-number">3.1.</span> <span class="nav-text">特点：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#工作过程"><span class="nav-number">3.2.</span> <span class="nav-text">工作过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#点击鼠标发生的事件"><span class="nav-number">3.3.</span> <span class="nav-text">点击鼠标发生的事件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#所需时间"><span class="nav-number">3.4.</span> <span class="nav-text">所需时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTTP报文结构"><span class="nav-number">3.5.</span> <span class="nav-text">HTTP报文结构</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层的一些概念"><span class="nav-number">1.</span> <span class="nav-text">运输层的一些概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户数据报协议UDP（User-Datagram-Protocol）"><span class="nav-number">2.</span> <span class="nav-text">用户数据报协议UDP（User Datagram Protocol）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输控制协议TCP（Transmission-Control-Protocol）"><span class="nav-number">3.</span> <span class="nav-text">传输控制协议TCP（Transmission Control Protocol）</span></a></li></ol></div>
             
 
           </div>
