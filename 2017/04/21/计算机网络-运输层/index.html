@@ -96,7 +96,7 @@
 两个主机之间的通信实际上是主机之间的应用进程通信，从运输层角度看，通信的真正端点不是主机而是主机中的进程。
 运输层有一个重要的功能：复用和分用。复用是指应用层的进程都能使用同一个运输层协议传送数据，分用是指接收方的运输层接收到数据后能正确的把数据交付目的应用进程。
 用户">
-<meta property="og:updated_time" content="2017-04-21T11:35:31.543Z">
+<meta property="og:updated_time" content="2017-04-28T17:29:16.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="计算机网络-运输层">
 <meta name="twitter:description" content="运输层的一些概念从通信和信息处理的角度看，运输层向它上面的应用层提供通信服务，属于面向通信部分的最高层，也是用户功能中的最底层。
@@ -360,7 +360,7 @@
 <p>两个主机之间的通信实际上是<strong>主机之间的应用进程</strong>通信，从运输层角度看，通信的真正端点不是主机而是主机中的进程。</p>
 <p>运输层有一个重要的功能：<strong>复用</strong>和<strong>分用</strong>。复用是指应用层的进程都能使用同一个运输层协议传送数据，分用是指接收方的运输层接收到数据后能正确的把数据交付目的应用进程。</p>
 <h2 id="用户数据报协议UDP（User-Datagram-Protocol）"><a href="#用户数据报协议UDP（User-Datagram-Protocol）" class="headerlink" title="用户数据报协议UDP（User Datagram Protocol）"></a>用户数据报协议UDP（User Datagram Protocol）</h2><h2 id="传输控制协议TCP（Transmission-Control-Protocol）"><a href="#传输控制协议TCP（Transmission-Control-Protocol）" class="headerlink" title="传输控制协议TCP（Transmission Control Protocol）"></a>传输控制协议TCP（Transmission Control Protocol）</h2><p>面向连接</p>
-
+<h3 id="停止等待协议"><a href="#停止等待协议" class="headerlink" title="停止等待协议"></a>停止等待协议</h3><h3 id="连续ARQ协议"><a href="#连续ARQ协议" class="headerlink" title="连续ARQ协议"></a>连续ARQ协议</h3>
       
     </div>
 
@@ -541,7 +541,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层的一些概念"><span class="nav-number">1.</span> <span class="nav-text">运输层的一些概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户数据报协议UDP（User-Datagram-Protocol）"><span class="nav-number">2.</span> <span class="nav-text">用户数据报协议UDP（User Datagram Protocol）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输控制协议TCP（Transmission-Control-Protocol）"><span class="nav-number">3.</span> <span class="nav-text">传输控制协议TCP（Transmission Control Protocol）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#运输层的一些概念"><span class="nav-number">1.</span> <span class="nav-text">运输层的一些概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#用户数据报协议UDP（User-Datagram-Protocol）"><span class="nav-number">2.</span> <span class="nav-text">用户数据报协议UDP（User Datagram Protocol）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传输控制协议TCP（Transmission-Control-Protocol）"><span class="nav-number">3.</span> <span class="nav-text">传输控制协议TCP（Transmission Control Protocol）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#停止等待协议"><span class="nav-number">3.1.</span> <span class="nav-text">停止等待协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连续ARQ协议"><span class="nav-number">3.2.</span> <span class="nav-text">连续ARQ协议</span></a></li></ol></li></ol></div>
             
 
           </div>
