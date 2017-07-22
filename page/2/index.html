@@ -251,338 +251,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/02/JS基础-面向对象/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="橡树上">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="十二棵橡树">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/02/JS基础-面向对象/" itemprop="url">
-                  JS基础-面向对象
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-02T21:02:41+08:00">
-                2017-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BasisNotes/" itemprop="url" rel="index">
-                    <span itemprop="name">BasisNotes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="思维导图"><a href="#思维导图" class="headerlink" title="思维导图"></a>思维导图</h2><p>首先还是先放上《高程》第六章学习过程中记录的思维导图吧</p>
-<h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><h3 id="Object构造函数"><a href="#Object构造函数" class="headerlink" title="Object构造函数"></a>Object构造函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">Person.name = <span class="string">"BetaMee"</span>;</div><div class="line">Person.age = <span class="number">29</span>;</div><div class="line">Person.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="对象字面量"><a href="#对象字面量" class="headerlink" title="对象字面量"></a>对象字面量</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> Person = &#123;</div><div class="line">  <span class="attr">name</span>: <span class="string">"BetaMee"</span>;</div><div class="line">  age: <span class="number">29</span>;</div><div class="line">  sayName: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>缺点：无法重用</p>
-<h3 id="工厂模式"><a href="#工厂模式" class="headerlink" title="工厂模式"></a>工厂模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createPerson</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> o = <span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">  o.name=name;</div><div class="line">  o.age=age;</div><div class="line">  o.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> o;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>缺点： 无法解决对象识别问题，即无法判别一个实例的类型，因为返回的是object类型。</p>
-<h3 id="构造函数模式"><a href="#构造函数模式" class="headerlink" title="构造函数模式"></a>构造函数模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>) </span>&#123;</div><div class="line">  <span class="keyword">this</span>.name=name;</div><div class="line">  <span class="keyword">this</span>.age=age;</div><div class="line">  <span class="keyword">this</span>.job=job;</div><div class="line">  <span class="keyword">this</span>.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person(<span class="string">'BetaMee'</span>,<span class="number">20</span>,<span class="string">'stu'</span>);</div><div class="line"><span class="keyword">var</span> person2=<span class="keyword">new</span> Person(<span class="string">'Oak'</span>,<span class="number">20</span>,<span class="string">'stu'</span>);</div><div class="line"></div><div class="line">要验证person1和person2实例的类型，使用<span class="keyword">instanceof</span>操作符</div></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> Person); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(person1 <span class="keyword">instanceof</span> <span class="built_in">Object</span>); <span class="comment">//true</span></div></pre></td></tr></table></figure>
-<p>之所以person1对Object是true，因为所有对象都继承自Object。</p>
-<p>优点：可以识别实例的类型。</p>
-<p>缺点：每个实例都独立，一些方法也被重复创建。</p>
-<h3 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h3><h4 id="创建细节"><a href="#创建细节" class="headerlink" title="创建细节"></a>创建细节</h4><p>我们创建的每个函数都有一个<code>prototype</code>属性，这个属性是个指针，指向一个对象，而这个对象的用途是包含可以被所有实例共享的属性和方法。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype.name=<span class="string">"BetaMee"</span>;</div><div class="line">Person.prototype.age=<span class="number">29</span>;</div><div class="line">Person.prototype.job=<span class="string">"stu"</span>;</div><div class="line">Person.prototype.sayName=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person1 =<span class="keyword">new</span> Person();</div></pre></td></tr></table></figure>
-<p>原型对象，是JS中非常重要的一个概念。无论什么时候，只要新建一个函数，就会根据一组特定的规则为该函数创建一个prototype属性，这个属性指向原型对象，而在默认的情况下，所有的原型对象都有一个constructor，指向Person。通过这个构造函数，可以继续为原型对象添加其他属性和方法。</p>
-<p>其实打开浏览器，就可以研究一下。在Chrome中，做以下实验：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line">Person.prototype.name=<span class="string">"BetaMee"</span>;</div><div class="line"></div><div class="line"><span class="keyword">var</span> person1=<span class="keyword">new</span> Person();</div><div class="line"></div><div class="line"><span class="comment">//接下来使用console.log()方法来测试这些关系。</span></div><div class="line"><span class="built_in">console</span>.log(person1); <span class="comment">//  Person &#123;age: 15&#125;</span></div><div class="line"><span class="built_in">console</span>.log(person1.__proto__); <span class="comment">// Object &#123;name: "BetaMee", constructor: function&#125;</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(person1)); <span class="comment">//true</span></div><div class="line"><span class="built_in">console</span>.log(Person.prototype.constructor); <span class="comment">//function Person(age)&#123;this.age=age;&#125;</span></div></pre></td></tr></table></figure></p>
-<p>这些关系可以用一个图来说明：</p>
-<img src="/2017/04/02/JS基础-面向对象/原型对象.png" alt="原型对象关系" title="原型对象关系">
-<p>代码里的<code>person1.__proto__</code>指的是person1的原型，因为图中实例属性[[prototype]]是无法访问的，所以各个浏览器通过实现<code>__proto__</code>这个属性来解决，非标准。也可以通过Person.prototype.isPrototypeOf(person1)这种方式来判断一个实例是否是一个原型对象的实例。ECMAScript5中新方法：<code>Object.getPrototypeOf(person1)</code>可以得到一个实例对象的原型对象。</p>
-<p>原型对象的constructor是指向构造函数的，也就是指向函数本身。</p>
-<h4 id="in操作符和判断属性属于哪一个部分"><a href="#in操作符和判断属性属于哪一个部分" class="headerlink" title="in操作符和判断属性属于哪一个部分"></a>in操作符和判断属性属于哪一个部分</h4><p>两种方式使用in操作符：单独使用和for…in循环，单独使用时，in操作符会在通过对象能够访问给定属性时返回true，<strong>无论该属性是否是在实例还是在原型中</strong>，</p>
-<p>而<code>实例.hasOwnProperty()</code>则判断属性只有在实例中时才返回true。</p>
-<p>要想取得对象上所有可枚举的实例属性，使用<code>Object.keys()</code>。要想取得所有实例属性，无论是否可枚举，使用   <code>Object.getOwnPropertyNames()</code></p>
-<h4 id="更简单的原型语法"><a href="#更简单的原型语法" class="headerlink" title="更简单的原型语法"></a>更简单的原型语法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>)</span>&#123;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype=&#123;</div><div class="line">  <span class="attr">constructor</span>:Person, <span class="comment">//这一点一定要手动添加，因为这个会重写prototype属性</span></div><div class="line">  name:<span class="string">"BetaMee"</span>,</div><div class="line">  <span class="attr">age</span>:<span class="number">25</span>,</div><div class="line">  <span class="attr">sayName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>此时有个问题：这种方式定义下的constructor是可枚举的，而原生是不可枚举的，要想达到原生的效果，使用<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Object</span>.defineProperty(Person.prototype,<span class="string">"constructor"</span>,&#123;</div><div class="line">  <span class="attr">enumerable</span>:<span class="literal">false</span>,</div><div class="line">  <span class="attr">value</span>:Person</div><div class="line">&#125;);</div></pre></td></tr></table></figure></p>
-<h3 id="组合使用构造函数模式和原型模式"><a href="#组合使用构造函数模式和原型模式" class="headerlink" title="组合使用构造函数模式和原型模式"></a>组合使用构造函数模式和原型模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name=name;</div><div class="line">  <span class="keyword">this</span>.age=age;</div><div class="line">  <span class="keyword">this</span>.job=job;</div><div class="line">&#125;</div><div class="line"></div><div class="line">Person.prototype=&#123;</div><div class="line">  <span class="attr">constructor</span>:Person,</div><div class="line">  <span class="attr">sayName</span>:<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.name</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="动态原型模式"><a href="#动态原型模式" class="headerlink" title="动态原型模式"></a>动态原型模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params">name,age,job</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name=name;</div><div class="line">  <span class="keyword">this</span>.age=age;</div><div class="line">  <span class="keyword">this</span>.job=job;</div><div class="line">  <span class="keyword">if</span>(<span class="keyword">typeof</span> <span class="keyword">this</span>.sayName != <span class="string">"function"</span>)&#123;</div><div class="line">    Person.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">      <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">    &#125;</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="寄生构造函数模式"><a href="#寄生构造函数模式" class="headerlink" title="寄生构造函数模式"></a>寄生构造函数模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SpecialArray</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> values = <span class="keyword">new</span> <span class="built_in">Array</span>();</div><div class="line">  values.push.apply(values,<span class="built_in">arguments</span>);</div><div class="line">  values.toPipedString=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.join(<span class="string">"|"</span>);</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> values;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> colors = <span class="keyword">new</span> SpecialArray(<span class="string">"red"</span>,<span class="string">"blue"</span>,<span class="string">"green"</span>);</div></pre></td></tr></table></figure>
-<p>特点：返回的对象跟SpecialArray构造函数已经没有任何关系。</p>
-<h3 id="稳妥构造函数模式"><a href="#稳妥构造函数模式" class="headerlink" title="稳妥构造函数模式"></a>稳妥构造函数模式</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">var</span> o =<span class="keyword">new</span> <span class="built_in">Object</span>();</div><div class="line">  <span class="comment">//这里定义私有变量和函数</span></div><div class="line">  name=<span class="string">"hhh"</span>;</div><div class="line">  o.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> name;</div><div class="line">  &#125;</div><div class="line">  <span class="keyword">return</span> o;</div><div class="line">&#125;</div><div class="line"><span class="keyword">var</span> friend = Person();</div></pre></td></tr></table></figure>
-<p>特点:能隐藏变量，非常安全，外部无法访问name(其实就是闭包，后面详谈)。</p>
-<h2 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h2><h3 id="原型链"><a href="#原型链" class="headerlink" title="原型链"></a>原型链</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.property=<span class="literal">true</span>;</div><div class="line">    <span class="keyword">this</span>.colors=[<span class="string">'red'</span>,<span class="string">'blue'</span>];</div><div class="line">  &#125;</div><div class="line">  SuperType.prototype.getSuperValue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.property;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">this</span>.subproperty=<span class="literal">false</span>;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="comment">//继承SuperType</span></div><div class="line">  SubType.prototype=<span class="keyword">new</span> SuperType();</div><div class="line">  SubType.prototype.getSubValue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.subproperty;</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType();</div><div class="line">  <span class="comment">// console.log(instance1.constructor);</span></div><div class="line">  instance1.colors.push(<span class="string">"yellow"</span>);</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(instance1));</div><div class="line">  </div><div class="line">  <span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType();</div><div class="line">  <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(instance2));</div><div class="line">  <span class="built_in">console</span>.log(instance1 <span class="keyword">instanceof</span> SuperType);</div></pre></td></tr></table></figure>
-<p>原型继承，可以这么理解，子类的prototype是父类对象的一个实例，通过<code>SubType.prototype=new SuperType();</code>来建立，当来带来的问题就是，所有子类的实例都会共享父类实例，就是<code>SubType.prototype</code>，这个属性对应父类的一个实例，且共享。</p>
-<h3 id="借用构造函数"><a href="#借用构造函数" class="headerlink" title="借用构造函数"></a>借用构造函数</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//父类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.property=age;</div><div class="line">  <span class="keyword">this</span>.colors=[<span class="string">'red'</span>,<span class="string">'blue'</span>];</div><div class="line">&#125;</div><div class="line">SuperType.prototype.getSuperValue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.property;</div><div class="line">&#125;</div><div class="line"><span class="comment">//子类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">  <span class="comment">//调用父类构造函数</span></div><div class="line">  SuperType.call(<span class="keyword">this</span>,age);</div><div class="line">  <span class="keyword">this</span>.subproperty=<span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">SubType.prototype.getSubValue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.subproperty;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(<span class="number">15</span>);</div><div class="line">instance1.colors.push(<span class="string">"yellow"</span>);</div><div class="line"><span class="built_in">console</span>.log(instance1);<span class="comment">//SubType &#123;property: 15, colors: Array(3), subproperty: false&#125;</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(<span class="number">16</span>);</div><div class="line"><span class="built_in">console</span>.log(instance2);<span class="comment">//SubType &#123;property: 16, colors: Array(2), subproperty: false&#125;</span></div></pre></td></tr></table></figure>
-<p>问题在与这样继承下来的子类，是无法使用父类的原型对象中的属性的，意味着所有的方法都要在父类构造函数中定义，因为<code>SuperType.call(this,age);</code>这句执行可以看作是运行函数，将当前子类的this传进去，里面运行的是<code>this.colors=[&#39;red&#39;,&#39;blue&#39;];</code>这里的colors变量就会赋给子类实例，在浏览器上打印就会发现所有父类构造函数中定义的属性都变成了子类的属性。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">Array</span>(<span class="number">3</span>)</div><div class="line">property:<span class="number">15</span></div><div class="line">subproperty:<span class="literal">false</span></div></pre></td></tr></table></figure>
-<h3 id="组合继承"><a href="#组合继承" class="headerlink" title="组合继承"></a>组合继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//父类</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">   <span class="keyword">this</span>.property=age;</div><div class="line">   <span class="keyword">this</span>.colors=[<span class="string">'red'</span>,<span class="string">'blue'</span>];</div><div class="line"> &#125;</div><div class="line"> SuperType.prototype.getSuperValue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">this</span>.property;</div><div class="line"> &#125;</div><div class="line"> <span class="comment">//子类</span></div><div class="line"> <span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">age</span>)</span>&#123;</div><div class="line">   <span class="comment">//调用父类构造函数</span></div><div class="line">   SuperType.call(<span class="keyword">this</span>,age);</div><div class="line">   <span class="keyword">this</span>.subproperty=<span class="literal">false</span>;</div><div class="line"> &#125;</div><div class="line"> SubType.prototype=<span class="keyword">new</span> SuperType();</div><div class="line"> SubType.prototype.constructor = SubType;<span class="comment">//指向自身</span></div><div class="line"> SubType.prototype.getSubValue=<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">this</span>.subproperty;</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> instance1 = <span class="keyword">new</span> SubType(<span class="number">15</span>);</div><div class="line"> instance1.colors.push(<span class="string">"yellow"</span>);</div><div class="line"> <span class="built_in">console</span>.log(instance1);<span class="comment">//SubType &#123;property: 15, colors: Array(3), subproperty: false&#125;</span></div><div class="line"> </div><div class="line"> <span class="keyword">var</span> instance2 = <span class="keyword">new</span> SubType(<span class="number">16</span>);</div><div class="line"> <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(instance2));<span class="comment">//SubType &#123;property: 16, colors: Array(2), subproperty: false&#125;</span></div></pre></td></tr></table></figure>
-<p>来看一下Chrome浏览器下的结果：</p>
-<img src="/2017/04/02/JS基础-面向对象/组合继承.PNG" alt="组合继承" title="组合继承">
-<p>可以看到SubType的原型对象是指向SuperType的实例，constructor指向SubType自身，有点像原生引用类型。</p>
-<p>问题也来了：这里的colors出现了两次，一个是子类SubType实例中，一个是原型中出现。之所以有这样的问题，是因为SuperType构造函数调用了两次，一次是SubType构造函数中，此时只是像单纯执行下SuperType函数，里面的属性会成为子类实例属性。另一次是<code>new SuperType()</code>，这里会将父类实例赋给SubType原型对象，但这里的colors等属性会被屏蔽，因为之前一步已经在子类实例化中存在了。</p>
-<h3 id="原型式继承"><a href="#原型式继承" class="headerlink" title="原型式继承"></a>原型式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">   <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">   F.prototype=o;</div><div class="line">   <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line"> &#125;</div><div class="line"></div><div class="line"> <span class="keyword">var</span> person = &#123;</div><div class="line">   <span class="attr">name</span>:<span class="string">"XP"</span>,</div><div class="line">   <span class="attr">colors</span>: [<span class="string">'blue'</span>,<span class="string">'yellow'</span>]</div><div class="line"> &#125;;</div><div class="line"></div><div class="line"><span class="keyword">var</span> anotherPerson = object(person);</div><div class="line">anotherPerson.name = <span class="string">"XQ"</span>;</div><div class="line">anotherPerson.colors.push(<span class="string">'green'</span>);</div><div class="line"></div><div class="line"><span class="keyword">var</span> yetAnotherPerson = object(person);</div><div class="line">yetAnotherPerson.name = <span class="string">"LK"</span>;</div><div class="line">yetAnotherPerson.colors.push(<span class="string">'hhhh'</span>);</div><div class="line"></div><div class="line"><span class="built_in">console</span>.log(anotherPerson);</div><div class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(yetAnotherPerson));</div></pre></td></tr></table></figure>
-
-<p>这里，<code>object()</code>函数返回的一个新对象，它的原型对象就是要继承的那个对象，这里是person。这种方式意味着person对象和anotherPerson和yetAnotherPerson共享一些应用属性，如colors。</p>
-<p>这种方式的用途在于只想单纯的让一个对象与另一个对象保持类似（这句话的含义是，我的理解是，这里的对象都是单实例的，继承下来是共用的），而不用使用构造函数这么麻烦的方式。当然，使用JS原生的方法<code>Object.create()</code>也是规范化了这种原型式继承方式。记住，这里的person对象只有一个实例，改变一个<strong>引用类型属性值</strong>，如colors，会影响另外的实例！！</p>
-<h3 id="寄生式继承"><a href="#寄生式继承" class="headerlink" title="寄生式继承"></a>寄生式继承</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createAnother</span>(<span class="params">original</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> clone = object(original);</div><div class="line">  clone.sayHi = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">'hi'</span>);</div><div class="line">  &#125;;</div><div class="line">  <span class="keyword">return</span> clone;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>缺点：无法复用函数sayHi,降低效率。</p>
-<h3 id="强大的寄生组合式继承"><a href="#强大的寄生组合式继承" class="headerlink" title="强大的寄生组合式继承"></a>强大的寄生组合式继承</h3><p>所谓的寄生组合式继承，即通过构造函数来继承属性，通过原型链的混成形式来继承方法。</p>
-<p>举个例子:<br>先来个准备<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Object</span>(<span class="params">o</span>)</span>&#123;</div><div class="line">  <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>)</span>&#123;&#125;;</div><div class="line">  F.prototype=o;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">subType,superType</span>)</span>&#123;</div><div class="line">  <span class="keyword">var</span> prototype=<span class="built_in">Object</span>(subType.prototype);<span class="comment">//创建对象</span></div><div class="line">  prototype.constructor=subType;<span class="comment">//增强对象</span></div><div class="line">  subType.prototype=prototype;<span class="comment">//指定对象</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//父类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SuperType</span>(<span class="params">name</span>)</span>&#123;</div><div class="line">  <span class="keyword">this</span>.name = name;</div><div class="line">  <span class="keyword">this</span>.colors = [<span class="string">'red'</span>,<span class="string">'blue'</span>,<span class="string">'green'</span>];</div><div class="line">&#125;</div><div class="line"></div><div class="line">SuperType.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.name;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//子类</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">SubType</span>(<span class="params">name,age</span>)</span>&#123;</div><div class="line">  SuperType.call(<span class="keyword">this</span>,name);</div><div class="line">  <span class="keyword">this</span>.age = age;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">//寄生式组合</span></div><div class="line"></div><div class="line">inheritPrototype(SubType,SuperType);</div><div class="line"></div><div class="line"><span class="comment">//子类添加自己的方法</span></div><div class="line">SubType.prototype.sayAge = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">  <span class="keyword">return</span> <span class="keyword">this</span>.age;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>运行看结果：</p>
-<img src="/2017/04/02/JS基础-面向对象/寄生组合式继承.PNG" alt="寄生组合式继承" title="寄生组合式继承">
-<p>可以看到父类的属性在子类中实例化了，而父类的方法sayName则被共用。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/02/JS基础-变量、作用域和内存问题/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="橡树上">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="十二棵橡树">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/02/JS基础-变量、作用域和内存问题/" itemprop="url">
-                  JS基础-变量、作用域和内存问题
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-02T13:47:19+08:00">
-                2017-04-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BasisNotes/" itemprop="url" rel="index">
-                    <span itemprop="name">BasisNotes</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="１-知识体系思维导图"><a href="#１-知识体系思维导图" class="headerlink" title="１.知识体系思维导图"></a>１.知识体系思维导图</h2><img src="/2017/04/02/JS基础-变量、作用域和内存问题/JS变量、作用域、内存.png" alt="知识体系思维导图" title="知识体系思维导图">
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/03/30/JS数据结构和算法笔记-字典和散列表/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1751,6 +1419,321 @@
 
 
     
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/01/29/CSS基础-使用CSS布局的基础知识/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="橡树上">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="十二棵橡树">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/29/CSS基础-使用CSS布局的基础知识/" itemprop="url">
+                  使用CSS布局的基础知识
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-29T17:25:29+08:00">
+                2017-01-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/CSSTricks/" itemprop="url" rel="index">
+                    <span itemprop="name">CSSTricks</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="display属性"><a href="#display属性" class="headerlink" title=" display属性"></a> display属性</h2><p>基础的display有三种值：<br><strong>block</strong>、<strong>inline</strong>、<strong>none</strong>，<br>大多数默认值为block和inline。</p>
+<h4 id="block"><a href="#block" class="headerlink" title="block"></a>block</h4><p>有：p、form、div，块级元素会重新开始一行并且尽可能撑满容器。</p>
+<h4 id="inline"><a href="#inline" class="headerlink" title="inline"></a>inline</h4><p>有：span、a元素</p>
+<h4 id="none"><a href="#none" class="headerlink" title="none"></a>none</h4><p>通常用于在不删除元素的情况下隐藏元素，和<code>visibility:hidden</code>相比，它不会占据空间。</p>
+<h2 id="inline-block"><a href="#inline-block" class="headerlink" title="inline-block"></a>inline-block</h2><p><code>display:inline-block</code>可以将块级元素布局成行内元素一样，可用于创造网格网格铺满浏览器。</p>
+<p>几点记住：</p>
+<ul>
+<li><p>vertical-align 属性会影响到 inline-block 元素，你可能会把它的值设置为 top 。</p>
+</li>
+<li><p>你需要设置每一列的宽度</p>
+</li>
+<li><p>如果HTML源代码中元素之间有空格，那么列与列之间会产生空隙</p>
+</li>
+</ul>
+<p>其他还有：flex、inline-block</p>
+<h2 id="盒模型"><a href="#盒模型" class="headerlink" title="盒模型"></a>盒模型</h2><p>传统的盒模型有一定缺陷，比如设置<code>width:100px</code>，其实是设置元素宽度，不包括padding、border和margin，带来的问题是设置同样width值的两个元素大小不一，所以使用新的CSS属性：<code>box-sizing:border-box</code>，这个的用法本质是将width限定范围为border内，，包括了border和padding，同样一个width值，不同的border和padding带来不同的元素宽度值，但外观上就是一致的，这就带来一致的设计体验。</p>
+<h2 id="position定位"><a href="#position定位" class="headerlink" title="position定位"></a>position定位</h2><p>主要有四种：<strong>static</strong>、<strong>relative</strong>、<strong>fixed</strong>、<strong>absolute</strong>。</p>
+<h4 id="static"><a href="#static" class="headerlink" title="static"></a>static</h4><p>默认值，表示不会被“positioned”。</p>
+<h4 id="relative"><a href="#relative" class="headerlink" title="relative"></a>relative</h4><p>relative的表现和static一致，除非添加额外的属性，这额外的属性有<code>top、right、bottom、left</code>，是相对于她之前的位置发生偏移，且空间不会发生压缩。</p>
+<h4 id="fixed"><a href="#fixed" class="headerlink" title="fixed"></a>fixed</h4><p>也有<code>top</code>、<code>right</code> 、<code>bottom</code>、<code>left</code> 四种属性，只是这里的元素相对于视窗而言，且脱离文档流。</p>
+<h4 id="absolute"><a href="#absolute" class="headerlink" title="absolute"></a>absolute</h4><p>相对于最近的被<em>positioned</em> 的祖先元素（不是static元素），如果没有，则是body元素，并且随着页面滚动。脱离文档流的哦。</p>
+<h3 id="float"><a href="#float" class="headerlink" title="float"></a>float</h3><p>float是浮动定位，它会脱离标准文档流。<br>网上找到这篇讲得非常好。<a href="http://www.cnblogs.com/iyangyuan/archive/2013/03/27/2983813.html" target="_blank" rel="external">CSS浮动(float,clear)通俗讲解</a></p>
+<p>具体来说，就是使用float的元素会脱离文档流，进入一个新的“流层”，但是要注意的一个浮动的元素会“顶在”未浮动（还在标准文档流里）的元素下部，当几个元素都浮动了，则会排列起来，形成“横向效果”。<br>第二，clear必须用在要清除的元素的上，比如两个div元素从左到右float，对第二个div元素使用<code>clear:left</code>，那么表明这个元素左边必须没有浮动元素，则这个元素会往下一列，顶在边缘，上面是第一个浮动的元素。</p>
+<p>我试了下，使用clear清除的是自身受浮动的影响，比如一个元素div1和div2正常排列，div1左浮动，div2正常，则div1会“覆盖”div2，那么div2受到了影响，则使用clear清除左浮动则又会正常排列，但div1仍然是浮动的，只是不影响div2。</p>
+<p>还有一个是清除浮动（clearfix hack），对受浮动影响的元素加入<code>overflow:auto</code> ，这个有点解释的不清，具体看<a href="http://zh.learnlayout.com/clearfix.html" target="_blank" rel="external">清除浮动（clearfix hack）</a>。</p>
+<h2 id="百分比宽度"><a href="#百分比宽度" class="headerlink" title="百分比宽度"></a>百分比宽度</h2><p>使用<code>width：50%</code> 之类，可以做自适应的元素。适合搭配媒体查询</p>
+<h2 id="媒体查询"><a href="#媒体查询" class="headerlink" title="媒体查询"></a>媒体查询</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">@<span class="keyword">madia</span> screen and(min-mwidth:<span class="number">600px</span>)&#123;</div><div class="line">	<span class="comment">/*</span></div><div class="line">	这里填写的是大于600px的布局。</div><div class="line">	*/	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="flexbox"><a href="#flexbox" class="headerlink" title="flexbox"></a>flexbox</h2><p>可看阮一峰的教程。<br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html" target="_blank" rel="external">Flex 布局教程：语法篇</a><br><a href="http://www.ruanyifeng.com/blog/2015/07/flex-examples.html" target="_blank" rel="external">Flex 布局教程：实例篇</a></p>
+<p>有空把flexbox的各种属性用法列出来。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/01/22/Life-旧的不去，新的不来/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="橡树上">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="十二棵橡树">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/01/22/Life-旧的不去，新的不来/" itemprop="url">
+                  旧的不去，新的不来
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-01-22T01:02:55+08:00">
+                2017-01-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LifeLogs/" itemprop="url" rel="index">
+                    <span itemprop="name">LifeLogs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>用了两年半的小米3彻底报废了。 :)</p>
+<hr>
+<p>下午骑着车出门，听着歌，线连着口袋里的手机。也许是口袋太浅了吧，在飞驰而过的时候扑腾一下手机就甩了出来。一直以来被我称赞从没坏过坚实耐用的小米3就彻底拜拜了，满屏碎线，点击屏幕也没反应，只有歌还放着，没办法咯，塞上耳机继续走吧。</p>
+<p>虽然经常吐槽这部小米3，14年花了2000元在电信店购入，还是3G制式，买完就降价。两年来摔了无数次，去年之后就彻底裸奔，没有套没有贴膜。手抖摔，床上摔，听歌摔，从来没有坏过，也是坚强。小米的MIUI经常更新，颇为好评，虽然后面广告越来越多，但用着还算流畅，调教下来满足我的需求。</p>
+<p>本来也打算今年年底换个新的，但以这种方式退役我的小米机，还是略感无奈。</p>
+<p>此篇以纪念我的小米3。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
   </section>
 
   
@@ -1798,7 +1781,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
