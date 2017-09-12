@@ -251,7 +251,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/09/10/Issue-DOM知识梳理/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -276,7 +276,174 @@
             
               
                 
-                <a class="post-title-link" href="/2017/09/10/Issue-DOM知识梳理/" itemprop="url">
+                <a class="post-title-link" href="/2017/09/13/Issues-记录一次有趣的爬虫经历/" itemprop="url">
+                  Issues-记录一次有趣的爬虫经历
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T00:23:39+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Issues/" itemprop="url" rel="index">
+                    <span itemprop="name">Issues</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在<a href="https://github.com/BetaMee/NodeReptile" target="_blank" rel="external">Github</a>上，现在遇到一个有趣的问题。</p>
+<p>先上个图：</p>
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/console.png" alt="Terminal上的进度" title="Terminal上的进度">
+<p>嗯，这个状态已经持续三天了，第一个49994是指帖子详情页的链接，给个具体的链接：<a href="http://www.1point3acres.com/bbs/thread-282922-1-1.html" target="_blank" rel="external">录取汇报|一亩三分地论坛</a><br>第二个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> post = &#123;</div><div class="line">   author, <span class="comment">// 发帖人</span></div><div class="line">   semester, <span class="comment">// 学期</span></div><div class="line">   degree, <span class="comment">// 学位</span></div><div class="line">   offer, <span class="comment">// offer</span></div><div class="line">   major, <span class="comment">// 专业</span></div><div class="line">   admission, <span class="comment">// 录取学校</span></div><div class="line">   noticeDate, <span class="comment">// 通知时间</span></div><div class="line">   undergraduate, <span class="comment">// 本科</span></div><div class="line">   GPA, <span class="comment">// GPA</span></div><div class="line">   TOEFL, <span class="comment">// TOEFL</span></div><div class="line">   GRE, <span class="comment">// GRE</span></div><div class="line">   GRE_SUB, <span class="comment">// GRE_SUB</span></div><div class="line">   background, <span class="comment">// background</span></div><div class="line">   submitDate, <span class="comment">// 提交时间</span></div><div class="line">   result, <span class="comment">// 结果学校国家、地区</span></div><div class="line">   searchStatus, <span class="comment">// 查到status的方式</span></div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<p><strong>excel</strong> 是表明爬虫和页面处理已经完成了，进入到写入excel的阶段，现在这个状态已经持续了两天多了。。。。</p>
+<p>上具体的处理代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> XLSX <span class="keyword">from</span> <span class="string">'xlsx'</span>;</div><div class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> exportDataToExcel = <span class="function">(<span class="params">_data</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'excel'</span>);</div><div class="line">  <span class="keyword">const</span> _headers = [<span class="string">'author'</span>,</div><div class="line">    <span class="string">'semester'</span>,</div><div class="line">    <span class="string">'degree'</span>,</div><div class="line">    <span class="string">'offer'</span>,</div><div class="line">    <span class="string">'major'</span>,</div><div class="line">    <span class="string">'admission'</span>,</div><div class="line">    <span class="string">'noticeDate'</span>,</div><div class="line">    <span class="string">'undergraduate'</span>,</div><div class="line">    <span class="string">'GPA'</span>,</div><div class="line">    <span class="string">'TOEFL'</span>,</div><div class="line">    <span class="string">'GRE'</span>,</div><div class="line">    <span class="string">'GRE_SUB'</span>,</div><div class="line">    <span class="string">'background'</span>,</div><div class="line">    <span class="string">'submitDate'</span>,</div><div class="line">    <span class="string">'result'</span>,</div><div class="line">    <span class="string">'searchStatus'</span>,</div><div class="line">  ];</div><div class="line">  <span class="keyword">const</span> headers = _headers</div><div class="line">    <span class="comment">// 为 _headers 添加对应的单元格位置</span></div><div class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; v, <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + i) + <span class="number">1</span> &#125;))</div><div class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</div><div class="line"></div><div class="line">  <span class="keyword">const</span> data = _data</div><div class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> _headers.map(<span class="function">(<span class="params">k, j</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; <span class="attr">v</span>: v[k], <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + j) + (i + <span class="number">2</span>) &#125;)))</div><div class="line">    <span class="comment">// 对刚才的结果进行降维处理（二维数组变成一维数组）</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> prev.concat(next))</div><div class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</div><div class="line"></div><div class="line">  <span class="comment">// 合并 headers 和 data</span></div><div class="line">  <span class="keyword">const</span> output = <span class="built_in">Object</span>.assign(&#123;&#125;, headers, data);</div><div class="line">  <span class="comment">// 获取所有单元格的位置</span></div><div class="line">  <span class="keyword">const</span> outputPos = <span class="built_in">Object</span>.keys(output);</div><div class="line">  <span class="comment">// 计算出范围</span></div><div class="line">  <span class="keyword">const</span> ref = <span class="string">`<span class="subst">$&#123;outputPos[<span class="number">0</span>]&#125;</span>:<span class="subst">$&#123;outputPos[outputPos.length - <span class="number">1</span>]&#125;</span>`</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 构建 workbook 对象</span></div><div class="line">  <span class="keyword">const</span> wb = &#123;</div><div class="line">    <span class="attr">SheetNames</span>: [<span class="string">'mySheet'</span>],</div><div class="line">    <span class="attr">Sheets</span>: &#123;</div><div class="line">      <span class="attr">mySheet</span>: <span class="built_in">Object</span>.assign(&#123;&#125;, output, &#123; <span class="string">'!ref'</span>: ref &#125;),</div><div class="line">    &#125;,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="comment">// 导出 Excel</span></div><div class="line">  XLSX.writeFile(wb, path.resolve(__dirname, <span class="string">'../dist/testN.xlsx'</span>));</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> exportDataToExcel;</div></pre></td></tr></table></figure>
+<p>所以我就好奇是不是Nodejs 处理这4w+的数据有问题？整个处理函数用到也就map()函数和Object.assign()函数。<br>所以一下子处理4w+的数据，对于map或者Object.assign而言有问题？</p>
+<p>而且，我还观察到一个有趣的问题，当我开任务管理器，查看程序占用内存，发现是这样子的：</p>
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus1.png" alt="状态1" title="状态1">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus2.png" alt="状态2" title="状态2">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus3.png" alt="状态3" title="状态3">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus4.png" alt="状态4" title="状态4">
+<p>哦豁，CPU稳定占据30%左右，内存一直是从570多逐渐升到1200多再跌倒500多，循环往复。<br>这个状态已经持续进行了两天了，有趣。</p>
+<p>另外提一下，之前测试小范围数据是成功的，几百条对象的数据都是几分钟就搞定，上次最多的我记得是9k多条数据，<br>花了几个小时也能写入到excel，但现在这样两天持续这样我也是没见识过！</p>
+<p>我的电脑是联想Y510，14年买的，配置：</p>
+<ul>
+<li>CPU Core i5-4200M</li>
+<li>8G内存</li>
+<li>256G SSD加持</li>
+</ul>
+<p>运行环境：</p>
+<ul>
+<li>node v8.4.0</li>
+</ul>
+<p>持续两天下来，电脑风扇也是呼呼的，今晚再不行，真要按Ctrl + C取消了！ ==</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/09/10/Issues-DOM知识梳理/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="橡树上">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="十二棵橡树">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2017/09/10/Issues-DOM知识梳理/" itemprop="url">
                   Issue-DOM知识梳理
                 </a>
               
@@ -373,7 +540,7 @@
 <p>常用的就是文本、元素、属性节点，其他的就不知道了==</p>
 <p>我的理解是，html中的所有节点都有对应的类型，这些节点的继承自Node类型，而后面讲的Document类型，它是继承自Document，最终也还是继承自Node类型，<br>所以Node类型可以理解为一个大合集，包含元素、文本、文档、注释节点等</p>
 <h3 id="节点的属性的关系"><a href="#节点的属性的关系" class="headerlink" title="节点的属性的关系"></a>节点的属性的关系</h3><p>不废话，上图</p>
-<img src="/2017/09/10/Issue-DOM知识梳理/DOM节点关系.png" alt="DOM节点关系.png" title="">
+<img src="/2017/09/10/Issues-DOM知识梳理/DOM节点关系.png" alt="DOM节点关系" title="DOM节点关系">
 <h3 id="操纵节点的方法"><a href="#操纵节点的方法" class="headerlink" title="操纵节点的方法"></a>操纵节点的方法</h3><h2 id="Document类型"><a href="#Document类型" class="headerlink" title="Document类型"></a>Document类型</h2><p>特点：</p>
 <ul>
 <li>nodeType为9</li>
@@ -1562,7 +1729,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/07/Issue-从Animatelo库分析其中的设计模式/">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/07/Issues-从Animatelo库分析其中的设计模式/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="name" content="橡树上">
@@ -1587,7 +1754,7 @@
             
               
                 
-                <a class="post-title-link" href="/2017/04/07/Issue-从Animatelo库分析其中的设计模式/" itemprop="url">
+                <a class="post-title-link" href="/2017/04/07/Issues-从Animatelo库分析其中的设计模式/" itemprop="url">
                   Issue-从Animatelo库分析其中的设计模式
                 </a>
               
@@ -1705,152 +1872,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/07/Issues-2017Web开发者学习路线图/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="橡树上">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="十二棵橡树">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/07/Issues-2017Web开发者学习路线图/" itemprop="url">
-                  Web-2017Web开发者学习路线图
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T17:14:49+08:00">
-                2017-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Issues/" itemprop="url" rel="index">
-                    <span itemprop="name">Issues</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>最近看到一篇文章，讲解2017web开发的路线图，很喜欢那个那些图，于是拿出来，转载一篇。</p>
-<p>图中的前端技术栈里我还差Testing和Task Runners两个领域还没接触，后端还很多知识不懂呢，还想学习下DevOps。</p>
-<p>好了，下面是这篇文章的一些图文。原文在这<strong><a href="http://web.jobbole.com/90958/" target="_blank" rel="external">2017 Web 开发者学习路线图</a></strong>，当然原文也是介绍。真正的源头在Github上，是由一名叫Kamran Ahmed的教授建立的，<strong><a href="https://github.com/kamranahmedse/developer-roadmap" target="_blank" rel="external">仓库地址</a></strong></p>
-<img src="/2017/04/07/Issues-2017Web开发者学习路线图/intro.png" alt="总览" title="总览">
-<img src="/2017/04/07/Issues-2017Web开发者学习路线图/front-end.png" alt="前端路线" title="前端路线">
-<img src="/2017/04/07/Issues-2017Web开发者学习路线图/back-end.png" alt="后端路线" title="后端路线">
-<img src="/2017/04/07/Issues-2017Web开发者学习路线图/devops.png" alt="容器路线" title="容器路线">
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1898,7 +1919,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

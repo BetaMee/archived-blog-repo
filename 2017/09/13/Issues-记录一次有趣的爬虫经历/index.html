@@ -1,0 +1,709 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在Github上，现在遇到一个有趣的问题。
+先上个图：
+
+嗯，这个状态已经持续三天了，第一个49994是指帖子详情页的链接，给个具体的链接：录取汇报|一亩三分地论坛第二个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：
+123456789101112131415161718const pos">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Issues-记录一次有趣的爬虫经历">
+<meta property="og:url" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/index.html">
+<meta property="og:site_name" content="十二棵橡树">
+<meta property="og:description" content="为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在Github上，现在遇到一个有趣的问题。
+先上个图：
+
+嗯，这个状态已经持续三天了，第一个49994是指帖子详情页的链接，给个具体的链接：录取汇报|一亩三分地论坛第二个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：
+123456789101112131415161718const pos">
+<meta property="og:image" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/console.png">
+<meta property="og:image" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus1.png">
+<meta property="og:image" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus2.png">
+<meta property="og:image" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus3.png">
+<meta property="og:image" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus4.png">
+<meta property="og:updated_time" content="2017-09-12T17:07:48.814Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Issues-记录一次有趣的爬虫经历">
+<meta name="twitter:description" content="为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在Github上，现在遇到一个有趣的问题。
+先上个图：
+
+嗯，这个状态已经持续三天了，第一个49994是指帖子详情页的链接，给个具体的链接：录取汇报|一亩三分地论坛第二个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：
+123456789101112131415161718const pos">
+<meta name="twitter:image" content="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/console.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/"/>
+
+
+
+
+
+  <title> Issues-记录一次有趣的爬虫经历 | 十二棵橡树 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">十二棵橡树</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+    
+      <p class="site-subtitle">Hello World</p>
+    
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="橡树上">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="十二棵橡树">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Issues-记录一次有趣的爬虫经历
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-09-13T00:23:39+08:00">
+                2017-09-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Issues/" itemprop="url" rel="index">
+                    <span itemprop="name">Issues</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在<a href="https://github.com/BetaMee/NodeReptile" target="_blank" rel="external">Github</a>上，现在遇到一个有趣的问题。</p>
+<p>先上个图：</p>
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/console.png" alt="Terminal上的进度" title="Terminal上的进度">
+<p>嗯，这个状态已经持续三天了，第一个49994是指帖子详情页的链接，给个具体的链接：<a href="http://www.1point3acres.com/bbs/thread-282922-1-1.html" target="_blank" rel="external">录取汇报|一亩三分地论坛</a><br>第二个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> post = &#123;</div><div class="line">   author, <span class="comment">// 发帖人</span></div><div class="line">   semester, <span class="comment">// 学期</span></div><div class="line">   degree, <span class="comment">// 学位</span></div><div class="line">   offer, <span class="comment">// offer</span></div><div class="line">   major, <span class="comment">// 专业</span></div><div class="line">   admission, <span class="comment">// 录取学校</span></div><div class="line">   noticeDate, <span class="comment">// 通知时间</span></div><div class="line">   undergraduate, <span class="comment">// 本科</span></div><div class="line">   GPA, <span class="comment">// GPA</span></div><div class="line">   TOEFL, <span class="comment">// TOEFL</span></div><div class="line">   GRE, <span class="comment">// GRE</span></div><div class="line">   GRE_SUB, <span class="comment">// GRE_SUB</span></div><div class="line">   background, <span class="comment">// background</span></div><div class="line">   submitDate, <span class="comment">// 提交时间</span></div><div class="line">   result, <span class="comment">// 结果学校国家、地区</span></div><div class="line">   searchStatus, <span class="comment">// 查到status的方式</span></div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<p><strong>excel</strong> 是表明爬虫和页面处理已经完成了，进入到写入excel的阶段，现在这个状态已经持续了两天多了。。。。</p>
+<p>上具体的处理代码：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> XLSX <span class="keyword">from</span> <span class="string">'xlsx'</span>;</div><div class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> exportDataToExcel = <span class="function">(<span class="params">_data</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'excel'</span>);</div><div class="line">  <span class="keyword">const</span> _headers = [<span class="string">'author'</span>,</div><div class="line">    <span class="string">'semester'</span>,</div><div class="line">    <span class="string">'degree'</span>,</div><div class="line">    <span class="string">'offer'</span>,</div><div class="line">    <span class="string">'major'</span>,</div><div class="line">    <span class="string">'admission'</span>,</div><div class="line">    <span class="string">'noticeDate'</span>,</div><div class="line">    <span class="string">'undergraduate'</span>,</div><div class="line">    <span class="string">'GPA'</span>,</div><div class="line">    <span class="string">'TOEFL'</span>,</div><div class="line">    <span class="string">'GRE'</span>,</div><div class="line">    <span class="string">'GRE_SUB'</span>,</div><div class="line">    <span class="string">'background'</span>,</div><div class="line">    <span class="string">'submitDate'</span>,</div><div class="line">    <span class="string">'result'</span>,</div><div class="line">    <span class="string">'searchStatus'</span>,</div><div class="line">  ];</div><div class="line">  <span class="keyword">const</span> headers = _headers</div><div class="line">    <span class="comment">// 为 _headers 添加对应的单元格位置</span></div><div class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; v, <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + i) + <span class="number">1</span> &#125;))</div><div class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</div><div class="line"></div><div class="line">  <span class="keyword">const</span> data = _data</div><div class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> _headers.map(<span class="function">(<span class="params">k, j</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; <span class="attr">v</span>: v[k], <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + j) + (i + <span class="number">2</span>) &#125;)))</div><div class="line">    <span class="comment">// 对刚才的结果进行降维处理（二维数组变成一维数组）</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> prev.concat(next))</div><div class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</div><div class="line"></div><div class="line">  <span class="comment">// 合并 headers 和 data</span></div><div class="line">  <span class="keyword">const</span> output = <span class="built_in">Object</span>.assign(&#123;&#125;, headers, data);</div><div class="line">  <span class="comment">// 获取所有单元格的位置</span></div><div class="line">  <span class="keyword">const</span> outputPos = <span class="built_in">Object</span>.keys(output);</div><div class="line">  <span class="comment">// 计算出范围</span></div><div class="line">  <span class="keyword">const</span> ref = <span class="string">`<span class="subst">$&#123;outputPos[<span class="number">0</span>]&#125;</span>:<span class="subst">$&#123;outputPos[outputPos.length - <span class="number">1</span>]&#125;</span>`</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 构建 workbook 对象</span></div><div class="line">  <span class="keyword">const</span> wb = &#123;</div><div class="line">    <span class="attr">SheetNames</span>: [<span class="string">'mySheet'</span>],</div><div class="line">    <span class="attr">Sheets</span>: &#123;</div><div class="line">      <span class="attr">mySheet</span>: <span class="built_in">Object</span>.assign(&#123;&#125;, output, &#123; <span class="string">'!ref'</span>: ref &#125;),</div><div class="line">    &#125;,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="comment">// 导出 Excel</span></div><div class="line">  XLSX.writeFile(wb, path.resolve(__dirname, <span class="string">'../dist/testN.xlsx'</span>));</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> exportDataToExcel;</div></pre></td></tr></table></figure>
+<p>所以我就好奇是不是Nodejs 处理这4w+的数据有问题？整个处理函数用到也就map()函数和Object.assign()函数。<br>所以一下子处理4w+的数据，对于map或者Object.assign而言有问题？</p>
+<p>而且，我还观察到一个有趣的问题，当我开任务管理器，查看程序占用内存，发现是这样子的：</p>
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus1.png" alt="状态1" title="状态1">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus2.png" alt="状态2" title="状态2">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus3.png" alt="状态3" title="状态3">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus4.png" alt="状态4" title="状态4">
+<p>哦豁，CPU稳定占据30%左右，内存一直是从570多逐渐升到1200多再跌倒500多，循环往复。<br>这个状态已经持续进行了两天了，有趣。</p>
+<p>另外提一下，之前测试小范围数据是成功的，几百条对象的数据都是几分钟就搞定，上次最多的我记得是9k多条数据，<br>花了几个小时也能写入到excel，但现在这样两天持续这样我也是没见识过！</p>
+<p>我的电脑是联想Y510，14年买的，配置：</p>
+<ul>
+<li>CPU Core i5-4200M</li>
+<li>8G内存</li>
+<li>256G SSD加持</li>
+</ul>
+<p>运行环境：</p>
+<ul>
+<li>node v8.4.0</li>
+</ul>
+<p>持续两天下来，电脑风扇也是呼呼的，今晚再不行，真要按Ctrl + C取消了！ ==</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/10/Issues-DOM知识梳理/" rel="next" title="Issue-DOM知识梳理">
+                <i class="fa fa-chevron-left"></i> Issue-DOM知识梳理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="橡树上" />
+          <p class="site-author-name" itemprop="name">橡树上</p>
+          <p class="site-description motion-element" itemprop="description">超人不会飞</p>
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/BetaMee" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2909438360" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2014 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">橡树上</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+      <!-- UY BEGIN -->
+      <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid="></script>
+      <!-- UY END -->
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
