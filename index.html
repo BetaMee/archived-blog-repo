@@ -90,6 +90,7 @@
 <meta property="og:url" content="https://betamee.github.io/index.html">
 <meta property="og:site_name" content="十二棵橡树">
 <meta property="og:description" content="超人不会飞">
+<meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="十二棵橡树">
 <meta name="twitter:description" content="超人不会飞">
@@ -251,6 +252,148 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2018/08/15/Life-代码的人生/">
+
+  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="name" content="橡树上">
+    <meta itemprop="description" content="">
+    <meta itemprop="image" content="/images/avatar.jpg">
+  </span>
+
+  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="十二棵橡树">
+    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
+      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
+    </span>
+  </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/08/15/Life-代码的人生/" itemprop="url">
+                  Life-代码的人生
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-08-15T22:50:35+08:00">
+                2018-08-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/LifeLogs/" itemprop="url" rel="index">
+                    <span itemprop="name">LifeLogs</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>最近看王沪宁的《政治的人生》，对94年的社会思潮以及王学者的所思所考走马观花地了解了一下。作者谈他的一生奉献给了政治学，因而取书名政治的人生。想想自己，以后的人生基本上是和代码打交道，一出波澜壮阔的“代码的人生”。</p>
+<p>时值八月，刚入职一个半月，对于一个才毕业不久的学生，职业的发展才刚刚开始。。。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
   <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/09/13/Issues-记录一次有趣的爬虫经历/">
 
   <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -353,20 +496,20 @@
       
         
           
-            <p>为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在<a href="https://github.com/BetaMee/NodeReptile" target="_blank" rel="external">Github</a>上，现在遇到一个有趣的问题。</p>
+            <p>为了一个国创项目，要做爬虫收集留学论坛上的帖子，遂使用NodeJS写了一个爬虫脚本，项目挂在<a href="https://github.com/BetaMee/NodeReptile" target="_blank" rel="noopener">Github</a>上，现在遇到一个有趣的问题。</p>
 <p>先上个图：</p>
-<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/console.png" alt="Terminal上的进度" title="Terminal上的进度">
-<p>嗯，这个状态已经持续三天了，第一个和第二个49994是指帖子详情页的链接，给个具体的链接：<a href="http://www.1point3acres.com/bbs/thread-282922-1-1.html" target="_blank" rel="external">录取汇报|一亩三分地论坛</a><br>第三个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">const</span> post = &#123;</div><div class="line">   author, <span class="comment">// 发帖人</span></div><div class="line">   semester, <span class="comment">// 学期</span></div><div class="line">   degree, <span class="comment">// 学位</span></div><div class="line">   offer, <span class="comment">// offer</span></div><div class="line">   major, <span class="comment">// 专业</span></div><div class="line">   admission, <span class="comment">// 录取学校</span></div><div class="line">   noticeDate, <span class="comment">// 通知时间</span></div><div class="line">   undergraduate, <span class="comment">// 本科</span></div><div class="line">   GPA, <span class="comment">// GPA</span></div><div class="line">   TOEFL, <span class="comment">// TOEFL</span></div><div class="line">   GRE, <span class="comment">// GRE</span></div><div class="line">   GRE_SUB, <span class="comment">// GRE_SUB</span></div><div class="line">   background, <span class="comment">// background</span></div><div class="line">   submitDate, <span class="comment">// 提交时间</span></div><div class="line">   result, <span class="comment">// 结果学校国家、地区</span></div><div class="line">   searchStatus, <span class="comment">// 查到status的方式</span></div><div class="line"> &#125;;</div></pre></td></tr></table></figure>
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/console.png" title="Terminal上的进度">
+<p>嗯，这个状态已经持续三天了，第一个和第二个49994是指帖子详情页的链接，给个具体的链接：<a href="http://www.1point3acres.com/bbs/thread-282922-1-1.html" target="_blank" rel="noopener">录取汇报|一亩三分地论坛</a><br>第三个49994是指页面处理完后的数据，是一个这样的对象组合而成的数组：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> post = &#123;</span><br><span class="line">   author, <span class="comment">// 发帖人</span></span><br><span class="line">   semester, <span class="comment">// 学期</span></span><br><span class="line">   degree, <span class="comment">// 学位</span></span><br><span class="line">   offer, <span class="comment">// offer</span></span><br><span class="line">   major, <span class="comment">// 专业</span></span><br><span class="line">   admission, <span class="comment">// 录取学校</span></span><br><span class="line">   noticeDate, <span class="comment">// 通知时间</span></span><br><span class="line">   undergraduate, <span class="comment">// 本科</span></span><br><span class="line">   GPA, <span class="comment">// GPA</span></span><br><span class="line">   TOEFL, <span class="comment">// TOEFL</span></span><br><span class="line">   GRE, <span class="comment">// GRE</span></span><br><span class="line">   GRE_SUB, <span class="comment">// GRE_SUB</span></span><br><span class="line">   background, <span class="comment">// background</span></span><br><span class="line">   submitDate, <span class="comment">// 提交时间</span></span><br><span class="line">   result, <span class="comment">// 结果学校国家、地区</span></span><br><span class="line">   searchStatus, <span class="comment">// 查到status的方式</span></span><br><span class="line"> &#125;;</span><br></pre></td></tr></table></figure>
 <p><strong>excel</strong> 是表明爬虫和页面处理已经完成了，进入到写入excel的阶段，现在这个状态已经持续了两天多了。。。。</p>
 <p>上具体的处理代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> XLSX <span class="keyword">from</span> <span class="string">'xlsx'</span>;</div><div class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</div><div class="line"></div><div class="line"><span class="keyword">const</span> exportDataToExcel = <span class="function">(<span class="params">_data</span>) =&gt;</span> &#123;</div><div class="line">  <span class="built_in">console</span>.log(<span class="string">'excel'</span>);</div><div class="line">  <span class="keyword">const</span> _headers = [<span class="string">'author'</span>,</div><div class="line">    <span class="string">'semester'</span>,</div><div class="line">    <span class="string">'degree'</span>,</div><div class="line">    <span class="string">'offer'</span>,</div><div class="line">    <span class="string">'major'</span>,</div><div class="line">    <span class="string">'admission'</span>,</div><div class="line">    <span class="string">'noticeDate'</span>,</div><div class="line">    <span class="string">'undergraduate'</span>,</div><div class="line">    <span class="string">'GPA'</span>,</div><div class="line">    <span class="string">'TOEFL'</span>,</div><div class="line">    <span class="string">'GRE'</span>,</div><div class="line">    <span class="string">'GRE_SUB'</span>,</div><div class="line">    <span class="string">'background'</span>,</div><div class="line">    <span class="string">'submitDate'</span>,</div><div class="line">    <span class="string">'result'</span>,</div><div class="line">    <span class="string">'searchStatus'</span>,</div><div class="line">  ];</div><div class="line">  <span class="keyword">const</span> headers = _headers</div><div class="line">    <span class="comment">// 为 _headers 添加对应的单元格位置</span></div><div class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; v, <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + i) + <span class="number">1</span> &#125;))</div><div class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</div><div class="line"></div><div class="line">  <span class="keyword">const</span> data = _data</div><div class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> _headers.map(<span class="function">(<span class="params">k, j</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; <span class="attr">v</span>: v[k], <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + j) + (i + <span class="number">2</span>) &#125;)))</div><div class="line">    <span class="comment">// 对刚才的结果进行降维处理（二维数组变成一维数组）</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> prev.concat(next))</div><div class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></div><div class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</div><div class="line"></div><div class="line">  <span class="comment">// 合并 headers 和 data</span></div><div class="line">  <span class="keyword">const</span> output = <span class="built_in">Object</span>.assign(&#123;&#125;, headers, data);</div><div class="line">  <span class="comment">// 获取所有单元格的位置</span></div><div class="line">  <span class="keyword">const</span> outputPos = <span class="built_in">Object</span>.keys(output);</div><div class="line">  <span class="comment">// 计算出范围</span></div><div class="line">  <span class="keyword">const</span> ref = <span class="string">`<span class="subst">$&#123;outputPos[<span class="number">0</span>]&#125;</span>:<span class="subst">$&#123;outputPos[outputPos.length - <span class="number">1</span>]&#125;</span>`</span>;</div><div class="line"></div><div class="line">  <span class="comment">// 构建 workbook 对象</span></div><div class="line">  <span class="keyword">const</span> wb = &#123;</div><div class="line">    <span class="attr">SheetNames</span>: [<span class="string">'mySheet'</span>],</div><div class="line">    <span class="attr">Sheets</span>: &#123;</div><div class="line">      <span class="attr">mySheet</span>: <span class="built_in">Object</span>.assign(&#123;&#125;, output, &#123; <span class="string">'!ref'</span>: ref &#125;),</div><div class="line">    &#125;,</div><div class="line">  &#125;;</div><div class="line"></div><div class="line">  <span class="comment">// 导出 Excel</span></div><div class="line">  XLSX.writeFile(wb, path.resolve(__dirname, <span class="string">'../dist/testN.xlsx'</span>));</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="keyword">export</span> <span class="keyword">default</span> exportDataToExcel;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> XLSX <span class="keyword">from</span> <span class="string">'xlsx'</span>;</span><br><span class="line"><span class="keyword">import</span> path <span class="keyword">from</span> <span class="string">'path'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> exportDataToExcel = <span class="function">(<span class="params">_data</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'excel'</span>);</span><br><span class="line">  <span class="keyword">const</span> _headers = [<span class="string">'author'</span>,</span><br><span class="line">    <span class="string">'semester'</span>,</span><br><span class="line">    <span class="string">'degree'</span>,</span><br><span class="line">    <span class="string">'offer'</span>,</span><br><span class="line">    <span class="string">'major'</span>,</span><br><span class="line">    <span class="string">'admission'</span>,</span><br><span class="line">    <span class="string">'noticeDate'</span>,</span><br><span class="line">    <span class="string">'undergraduate'</span>,</span><br><span class="line">    <span class="string">'GPA'</span>,</span><br><span class="line">    <span class="string">'TOEFL'</span>,</span><br><span class="line">    <span class="string">'GRE'</span>,</span><br><span class="line">    <span class="string">'GRE_SUB'</span>,</span><br><span class="line">    <span class="string">'background'</span>,</span><br><span class="line">    <span class="string">'submitDate'</span>,</span><br><span class="line">    <span class="string">'result'</span>,</span><br><span class="line">    <span class="string">'searchStatus'</span>,</span><br><span class="line">  ];</span><br><span class="line">  <span class="keyword">const</span> headers = _headers</span><br><span class="line">    <span class="comment">// 为 _headers 添加对应的单元格位置</span></span><br><span class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; v, <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + i) + <span class="number">1</span> &#125;))</span><br><span class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></span><br><span class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> data = _data</span><br><span class="line">    .map(<span class="function">(<span class="params">v, i</span>) =&gt;</span> _headers.map(<span class="function">(<span class="params">k, j</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, &#123; <span class="attr">v</span>: v[k], <span class="attr">position</span>: <span class="built_in">String</span>.fromCharCode(<span class="number">65</span> + j) + (i + <span class="number">2</span>) &#125;)))</span><br><span class="line">    <span class="comment">// 对刚才的结果进行降维处理（二维数组变成一维数组）</span></span><br><span class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> prev.concat(next))</span><br><span class="line">    <span class="comment">// 转换成 worksheet 需要的结构</span></span><br><span class="line">    .reduce(<span class="function">(<span class="params">prev, next</span>) =&gt;</span> <span class="built_in">Object</span>.assign(&#123;&#125;, prev, &#123; [next.position]: &#123; <span class="attr">v</span>: next.v &#125; &#125;), &#123;&#125;);</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 合并 headers 和 data</span></span><br><span class="line">  <span class="keyword">const</span> output = <span class="built_in">Object</span>.assign(&#123;&#125;, headers, data);</span><br><span class="line">  <span class="comment">// 获取所有单元格的位置</span></span><br><span class="line">  <span class="keyword">const</span> outputPos = <span class="built_in">Object</span>.keys(output);</span><br><span class="line">  <span class="comment">// 计算出范围</span></span><br><span class="line">  <span class="keyword">const</span> ref = <span class="string">`<span class="subst">$&#123;outputPos[<span class="number">0</span>]&#125;</span>:<span class="subst">$&#123;outputPos[outputPos.length - <span class="number">1</span>]&#125;</span>`</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 构建 workbook 对象</span></span><br><span class="line">  <span class="keyword">const</span> wb = &#123;</span><br><span class="line">    SheetNames: [<span class="string">'mySheet'</span>],</span><br><span class="line">    Sheets: &#123;</span><br><span class="line">      mySheet: <span class="built_in">Object</span>.assign(&#123;&#125;, output, &#123; <span class="string">'!ref'</span>: ref &#125;),</span><br><span class="line">    &#125;,</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 导出 Excel</span></span><br><span class="line">  XLSX.writeFile(wb, path.resolve(__dirname, <span class="string">'../dist/testN.xlsx'</span>));</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> exportDataToExcel;</span><br></pre></td></tr></table></figure>
 <p>所以我就好奇是不是Nodejs 处理这4w+的数据有问题？整个处理函数用到也就map()函数和Object.assign()函数。<br>所以一下子处理4w+的数据，对于map或者Object.assign而言有问题？</p>
 <p>而且，我还观察到一个有趣的问题，当我开任务管理器，查看程序占用内存，发现是这样子的：</p>
-<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus1.png" alt="状态1" title="状态1">
-<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus2.png" alt="状态2" title="状态2">
-<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus3.png" alt="状态3" title="状态3">
-<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus4.png" alt="状态4" title="状态4">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus1.png" title="状态1">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus2.png" title="状态2">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus3.png" title="状态3">
+<img src="/2017/09/13/Issues-记录一次有趣的爬虫经历/nodestatus4.png" title="状态4">
 <p>哦豁，CPU稳定占据30%左右，内存一直是从570多逐渐升到1200多再跌倒500多，循环往复。<br>这个状态已经持续进行了两天了，有趣。</p>
 <p>另外提一下，之前测试小范围数据是成功的，几百条对象的数据都是几分钟就搞定，上次最多的我记得是9k多条数据，花了几个小时也能写入到excel，但现在这样两天持续这样我也是没见识过！</p>
 <p>我的电脑是联想Y510，14年买的，配置：</p>
@@ -540,7 +683,7 @@
 <p>常用的就是文本、元素、属性节点，其他的就不知道了==</p>
 <p>我的理解是，html中的所有节点都有对应的类型，这些节点的继承自Node类型，而后面讲的Document类型，它是继承自Document，最终也还是继承自Node类型，<br>所以Node类型可以理解为一个大合集，包含元素、文本、文档、注释节点等</p>
 <h3 id="节点的属性的关系"><a href="#节点的属性的关系" class="headerlink" title="节点的属性的关系"></a>节点的属性的关系</h3><p>不废话，上图</p>
-<img src="/2017/09/10/Issues-DOM知识梳理/DOM节点关系.png" alt="DOM节点关系" title="DOM节点关系">
+<img src="/2017/09/10/Issues-DOM知识梳理/DOM节点关系.png" title="DOM节点关系">
 <h3 id="操纵节点的方法"><a href="#操纵节点的方法" class="headerlink" title="操纵节点的方法"></a>操纵节点的方法</h3><h2 id="Document类型"><a href="#Document类型" class="headerlink" title="Document类型"></a>Document类型</h2><p>特点：</p>
 <ul>
 <li>nodeType为9</li>
@@ -563,7 +706,7 @@
 <li>document.getElementsByTagName()</li>
 <li>document.createElement()</li>
 </ul>
-<h2 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h2><p>如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"id"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>hh<span class="tag">&lt;/<span class="name">p</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h2 id="Element类型"><a href="#Element类型" class="headerlink" title="Element类型"></a>Element类型</h2><p>如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"id"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">p</span>&gt;</span>hh<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>特点:</p>
 <ul>
 <li>nodeType为1</li>
@@ -882,20 +1025,20 @@
             <p>对于使用vscode调试nodejs一直有强烈的愿望，这次在项目中研究了一下，使用nodemon搭配vscode来，寻找一个便捷可靠的方式来调试nodejs。</p>
 <p>vscode通过launch.json来配置debugger，内置了很多平台的调试器，有debug for chrome、nodejs、python。这次篇文章重点记录nodejs后端调试。</p>
 <p>先给出我的项目结构：</p>
-<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/project.png" alt="项目结构" title="项目结构">
+<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/project.png" title="项目结构">
 <p>./app/ 是前端源码， ./build/是前端打包编译后的代码，这部分可以不看；./server/是nodejs端代码，是我们要调试的部分，./dist/是nodejs打包后的代码，是线上环境会运行的。我们重点看./server/是，因为这个是我们要调试的。</p>
 <p>我们使用nodemon来开启运行环境，这样可以修改服务端代码而不需要重启。由于node端使用了babel-node，所以需要做一些准备。</p>
 <p>我们的需求是编写服务端代码，可以方便快捷的调试，也就是说，当我在./server/编写代码，可以靠nodemon自动重启，可以靠babel-node来编译es6代码，靠vscode自带的debugger来帮助我们打断点，单步运行。</p>
 <h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><h3 id="launch-json"><a href="#launch-json" class="headerlink" title="launch.json"></a>launch.json</h3><p>launch.json是vscode调试必须的，在设置里，启用，选择配置。</p>
-<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/debugger.png" alt="配置" title="配置">
+<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/debugger.png" title="配置">
 <p>可以看到nodejs有很多选项，我之前试了一个nodemon启动，不过这个是要靠全局安装，还挺麻烦的，我就放弃了。然后我试了下<strong>Nodejs：附加</strong>选项，生成以下配置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// Use IntelliSense to learn about possible Node.js debug attributes.</span></div><div class="line">  <span class="comment">// Hover to view descriptions of existing attributes.</span></div><div class="line">  <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="string">"configurations"</span>: [</div><div class="line">    &#123;</div><div class="line">      <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">      <span class="string">"request"</span>: <span class="string">"attach"</span>,</div><div class="line">      <span class="string">"name"</span>: <span class="string">"Attach"</span>,</div><div class="line">      <span class="string">"port"</span>: <span class="number">5858</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// Use IntelliSense to learn about possible Node.js debug attributes.</span></span><br><span class="line">  <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">  <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="string">"configurations"</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">"type"</span>: <span class="string">"node"</span>,</span><br><span class="line">      <span class="string">"request"</span>: <span class="string">"attach"</span>,</span><br><span class="line">      <span class="string">"name"</span>: <span class="string">"Attach"</span>,</span><br><span class="line">      <span class="string">"port"</span>: <span class="number">5858</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这里字段的含义是：type表明是node程序，request是attach类型，我的理解是<strong>调试器是附着在现有运行进程上的</strong>，比如你在跑<code>node index.js</code>，启动一个node的进程，这个调试程序就会监听这段进程的运行。。name就是调试程序的名字，没什么好说的，port指的是调试程序的端口，要注意的一点是，attach调试分为–debug和–inspect，–debug为5858，–inspect为9229，暂且不表，后文详细说。</p>
 <p>最后给出我的配置：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">  <span class="comment">// Use IntelliSense to learn about possible Node.js debug attributes.</span></div><div class="line">  <span class="comment">// Hover to view descriptions of existing attributes.</span></div><div class="line">  <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></div><div class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</div><div class="line">  <span class="string">"configurations"</span>: [</div><div class="line">     &#123;</div><div class="line">        <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">        <span class="string">"request"</span>: <span class="string">"attach"</span>,</div><div class="line">        <span class="string">"name"</span>: <span class="string">"附加于已启动的 Node 服务器（debug模式）"</span>,</div><div class="line">        <span class="string">"port"</span>: <span class="number">5858</span>,</div><div class="line">        <span class="string">"restart"</span>: <span class="literal">true</span></div><div class="line">    &#125;,</div><div class="line">    &#123;</div><div class="line">        <span class="string">"type"</span>: <span class="string">"node"</span>,</div><div class="line">        <span class="string">"request"</span>: <span class="string">"attach"</span>,</div><div class="line">        <span class="string">"name"</span>: <span class="string">"附加于已启动的 Node 服务器（inspect模式）"</span>,</div><div class="line">        <span class="string">"port"</span>: <span class="number">9229</span>,</div><div class="line">        <span class="string">"restart"</span>: <span class="literal">true</span></div><div class="line">    &#125;</div><div class="line">  ]</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="comment">// Use IntelliSense to learn about possible Node.js debug attributes.</span></span><br><span class="line">  <span class="comment">// Hover to view descriptions of existing attributes.</span></span><br><span class="line">  <span class="comment">// For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387</span></span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.2.0"</span>,</span><br><span class="line">  <span class="string">"configurations"</span>: [</span><br><span class="line">     &#123;</span><br><span class="line">        <span class="string">"type"</span>: <span class="string">"node"</span>,</span><br><span class="line">        <span class="string">"request"</span>: <span class="string">"attach"</span>,</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"附加于已启动的 Node 服务器（debug模式）"</span>,</span><br><span class="line">        <span class="string">"port"</span>: <span class="number">5858</span>,</span><br><span class="line">        <span class="string">"restart"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="string">"type"</span>: <span class="string">"node"</span>,</span><br><span class="line">        <span class="string">"request"</span>: <span class="string">"attach"</span>,</span><br><span class="line">        <span class="string">"name"</span>: <span class="string">"附加于已启动的 Node 服务器（inspect模式）"</span>,</span><br><span class="line">        <span class="string">"port"</span>: <span class="number">9229</span>,</span><br><span class="line">        <span class="string">"restart"</span>: <span class="literal">true</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>添加一个 restart 参数是为了配合 nodemon 在监听到文件修改时重启服务器。</p>
 <h3 id="npm-script"><a href="#npm-script" class="headerlink" title="npm script"></a>npm script</h3><p>为什么要做这个准备呢？是因为我们启动程序要从npm script启动，而且需要一些配置。先给出我的script：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="string">"scripts"</span>: &#123;</div><div class="line">    <span class="string">"start"</span>: <span class="string">"cross-env NODE_ENV=production node ./dist/server.js "</span>,</div><div class="line">    <span class="string">"dev"</span>: <span class="string">"cross-env NODE_ENV=development nodemon ./server/server.js --inspect --exec babel-node"</span>,</div><div class="line">    <span class="string">"buildapp"</span>: <span class="string">"webpack --config webpack.config.prod.js"</span>,</div><div class="line">    <span class="string">"buildnode"</span>: <span class="string">"babel server -d dist --source-maps"</span></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"scripts"</span>: &#123;</span><br><span class="line">    <span class="string">"start"</span>: <span class="string">"cross-env NODE_ENV=production node ./dist/server.js "</span>,</span><br><span class="line">    <span class="string">"dev"</span>: <span class="string">"cross-env NODE_ENV=development nodemon ./server/server.js --inspect --exec babel-node"</span>,</span><br><span class="line">    <span class="string">"buildapp"</span>: <span class="string">"webpack --config webpack.config.prod.js"</span>,</span><br><span class="line">    <span class="string">"buildnode"</span>: <span class="string">"babel server -d dist --source-maps"</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <p>  start是生产环境下运行，buildapp打包前端代码，跟本文无关，buildnode是最后打包node代码脚本，重点看dev。</p>
 <p>  <code>npm run dev</code>启动的时候，会这样运行，首先设置node环境为<strong>development</strong>，<code>cross-env NODE_ENV=development</code>，然后是nodemon启动./server/server.js脚本，<code>--exec babel-node</code>表示没有使用node方式，默认为<code>node</code>启动， <code>--inspect</code>表示使用inspect方式，对应的事debug方式。</p>
 <p>  这里详细说明下上文的port点：</p>
@@ -940,9 +1083,9 @@
 <li>测试运行</li>
 </ol>
 <p>可以看到，当跑dev命令的时候：</p>
-<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/console.png" alt="输出" title="输出">
+<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/console.png" title="输出">
 <p>当启动调试器的时候，会出现：</p>
-<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/result.png" alt="连接成功" title="连接成功">
+<img src="/2017/07/16/Issues-使用vscode-nodemon调试nodejs（v6-9-0）/result.png" title="连接成功">
 <p>然后就是打断点，运行啦。愉快玩耍吧~~~~</p>
 
           
@@ -1674,15 +1817,29 @@
 <li>无状态</li>
 <li>本身无连接，使用的是TCP向上提供的服务</li>
 </ul>
-<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><img src="/2017/04/08/计算机网络-应用层/http过程.png" alt="http过程" title="http过程">
+<h2 id="工作过程"><a href="#工作过程" class="headerlink" title="工作过程"></a>工作过程</h2><img src="/2017/04/08/计算机网络-应用层/http过程.png" title="http过程">
 <h2 id="点击鼠标发生的事件"><a href="#点击鼠标发生的事件" class="headerlink" title="点击鼠标发生的事件"></a>点击鼠标发生的事件</h2><blockquote>
 <p>(1) 浏览器分析超链指向页面的 URL。</p>
-<p>(2) 浏览器向 DNS 请求解析 www.tsinghua.edu.cn 的 IP 地址。</p>
+</blockquote>
+<blockquote>
+<p>(2) 浏览器向 DNS 请求解析 <a href="http://www.tsinghua.edu.cn" target="_blank" rel="noopener">www.tsinghua.edu.cn</a> 的 IP 地址。</p>
+</blockquote>
+<blockquote>
 <p>(3) 域名系统 DNS 解析出清华大学服务器的 IP 地址。</p>
+</blockquote>
+<blockquote>
 <p>(4) 浏览器与服务器建立 TCP 连接</p>
+</blockquote>
+<blockquote>
 <p>(5) 浏览器发出取文件命令： GET /chn/yxsz/index.htm。</p>
+</blockquote>
+<blockquote>
 <p>(6) 服务器给出响应，把文件 index.htm 发给浏览器。</p>
+</blockquote>
+<blockquote>
 <p>(7) TCP 连接释放。</p>
+</blockquote>
+<blockquote>
 <p>(8) 浏览器显示”清华大学院系设置”文件 index.htm 中的所有文本。</p>
 </blockquote>
 <h2 id="所需时间"><a href="#所需时间" class="headerlink" title="所需时间"></a>所需时间</h2><ul>
@@ -1692,158 +1849,6 @@
 </li>
 </ul>
 <h2 id="HTTP报文结构"><a href="#HTTP报文结构" class="headerlink" title="HTTP报文结构"></a>HTTP报文结构</h2>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-  <link itemprop="mainEntityOfPage" href="https://betamee.github.io/2017/04/07/Issues-从Animatelo库分析其中的设计模式/">
-
-  <span style="display:none" itemprop="author" itemscope itemtype="http://schema.org/Person">
-    <meta itemprop="name" content="橡树上">
-    <meta itemprop="description" content="">
-    <meta itemprop="image" content="/images/avatar.jpg">
-  </span>
-
-  <span style="display:none" itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-    <meta itemprop="name" content="十二棵橡树">
-    <span style="display:none" itemprop="logo" itemscope itemtype="http://schema.org/ImageObject">
-      <img style="display:none;" itemprop="url image" alt="十二棵橡树" src="">
-    </span>
-  </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/04/07/Issues-从Animatelo库分析其中的设计模式/" itemprop="url">
-                  Issue-从Animatelo库分析其中的设计模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-04-07T23:48:14+08:00">
-                2017-04-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Issues/" itemprop="url" rel="index">
-                    <span itemprop="name">Issues</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>学习高程的函数表达式这章时，有一部分是关于私有变量和模块模式的部分，其实就是因为JS中没有私有变量和块级作用域这些个概念，导致只能通过一些技术手段来模拟，使用立即执行函数表达式IIFE可做到。</p>
-<p>模式如下<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">  <span class="comment">//private prop and methods</span></div><div class="line">&#125;)()</div></pre></td></tr></table></figure></p>
-<p>模块化的设计是为了开发大型应用，不必在全局环境中添加过多的属性和函数，便于每个人开发各自的部分，且暴露相应的变量和函数。注意，这个和面向对象的概念有区别。模块化是分而治之，面向对象是封装相应的属性和功能以完成功能和复用。</p>
-<p>模块化设计中，我找到了一个简洁完备的JS库作为学习资源，查看别人是怎么开发的。这个库叫Animatelo，是Animate.css的JS版，使用web animate api技术。</p>
-<p>好，先fork仓库，下载下来，它的源码在<strong>./src</strong>文件夹里，一个顶层文件<code>animatelo.js</code>，和一系列特效文件。<code>animatelo.js</code>源码很简单，一百多行，主要是配置一些选择函数和默认option。贴上源码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*! Animatelo | The MIT License (MIT) | Copyright (c) 2017 GibboK */</span></div><div class="line">; (<span class="function"><span class="keyword">function</span> (<span class="params">animatelo</span>) </span>&#123;</div><div class="line"><span class="meta">    'use strict'</span>;</div><div class="line">    animatelo.version = <span class="string">'1.0.1'</span>;</div><div class="line">    <span class="comment">//私有方法</span></div><div class="line">    <span class="keyword">var</span> _defaultOptions = &#123;</div><div class="line">        <span class="attr">duration</span>: <span class="number">10000</span>,</div><div class="line">        <span class="attr">delay</span>: <span class="number">0</span>,</div><div class="line">        <span class="attr">iterations</span>: <span class="number">1</span>,</div><div class="line">        <span class="attr">direction</span>: <span class="string">'normal'</span>,</div><div class="line">        <span class="attr">fill</span>: <span class="string">'both'</span></div><div class="line">    &#125;,</div><div class="line">    <span class="comment">//生成UUID，我的理解是对于每个元素有一个唯一编号吧，但这个意义在哪呢？</span></div><div class="line">        _UUID = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> d = <span class="keyword">new</span> <span class="built_in">Date</span>().getTime(),</div><div class="line">                uuid = <span class="string">'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'</span>.replace(<span class="regexp">/[xy]/g</span>, <span class="function"><span class="keyword">function</span> (<span class="params">c</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> r = (d + <span class="built_in">Math</span>.random() * <span class="number">16</span>) % <span class="number">16</span> | <span class="number">0</span>;</div><div class="line">                    d = <span class="built_in">Math</span>.floor(d / <span class="number">16</span>);</div><div class="line">                    <span class="keyword">return</span> (c === <span class="string">'x'</span> ? r : (r &amp; <span class="number">0x3</span> | <span class="number">0x8</span>)).toString(<span class="number">16</span>);</div><div class="line">                &#125;);</div><div class="line">            <span class="keyword">return</span> uuid;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//选择DOM元素</span></div><div class="line">        _select = <span class="function"><span class="keyword">function</span> (<span class="params">selector</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> nodeList,</div><div class="line">                isNodeList = selector <span class="keyword">instanceof</span> NodeList,</div><div class="line">                isNode = selector <span class="keyword">instanceof</span> Node,</div><div class="line">                isHTMLCollection = selector <span class="keyword">instanceof</span> HTMLCollection,</div><div class="line">                isString = <span class="keyword">typeof</span> selector === <span class="string">'string'</span>;</div><div class="line">            <span class="keyword">if</span> (isNodeList) &#123;</div><div class="line">                nodeList = selector;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isNode) &#123;</div><div class="line">                nodeList = [selector];</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span>(isHTMLCollection)&#123;</div><div class="line">                nodeList = selector;</div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (isString) &#123;</div><div class="line">                nodeList = <span class="built_in">document</span>.querySelectorAll(selector)</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">'selector is invaid'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> nodeList;</div><div class="line">        &#125;,</div><div class="line">        <span class="comment">//验证参数是否有效</span></div><div class="line">        _validate = <span class="function"><span class="keyword">function</span> (<span class="params">options</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> directionValid = [</div><div class="line">                <span class="string">'normal'</span>,</div><div class="line">                <span class="string">'reverse'</span>,</div><div class="line">                <span class="string">'alternate'</span>,</div><div class="line">                <span class="string">'alternate-reverse'</span>,</div><div class="line">                <span class="string">'initial'</span></div><div class="line">            ],</div><div class="line">                fillValid = [</div><div class="line">                    <span class="string">'none'</span>,</div><div class="line">                    <span class="string">'forwards'</span>,</div><div class="line">                    <span class="string">'backwards'</span>,</div><div class="line">                    <span class="string">'both'</span>,</div><div class="line">                    <span class="string">'initial'</span></div><div class="line">                ];</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> options.duration !== <span class="string">'number'</span>) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">'parameter duration is invalid'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> options.delay !== <span class="string">'number'</span>) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">'parameter delay is invalid'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> options.iterations !== <span class="string">'number'</span>) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">'parameter iterations is invalid'</span>;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> options.direction !== <span class="string">'string'</span> ||</div><div class="line">                directionValid.indexOf(options.direction) === <span class="number">-1</span>) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">'parameter direction is invalid'</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">if</span> (<span class="keyword">typeof</span> options.fill !== <span class="string">'string'</span> ||</div><div class="line">                directionValid.indexOf(options.direction) === <span class="number">-1</span>) &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="string">'parameter fill is invalid'</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">        <span class="comment">//核心方法，被置于animatelo对象上</span></div><div class="line">    animatelo._animate = <span class="function"><span class="keyword">function</span> (<span class="params">selector, keyframes, optionsArg</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> options = &#123;</div><div class="line">            <span class="attr">duration</span>: optionsArg &amp;&amp; <span class="string">'duration'</span> <span class="keyword">in</span> optionsArg ? optionsArg.duration : _defaultOptions.duration,</div><div class="line">            <span class="attr">delay</span>: optionsArg &amp;&amp; <span class="string">'delay'</span> <span class="keyword">in</span> optionsArg ? optionsArg.delay : _defaultOptions.delay,</div><div class="line">            <span class="attr">iterations</span>: optionsArg &amp;&amp; <span class="string">'iterations'</span> <span class="keyword">in</span> optionsArg ? optionsArg.iterations : _defaultOptions.iterations,</div><div class="line">            <span class="attr">direction</span>: optionsArg &amp;&amp; <span class="string">'direction'</span> <span class="keyword">in</span> optionsArg ? optionsArg.direction : _defaultOptions.direction,</div><div class="line">            <span class="attr">fill</span>: optionsArg &amp;&amp; <span class="string">'fill'</span> <span class="keyword">in</span> optionsArg ? optionsArg.fill : _defaultOptions.fill,</div><div class="line">            <span class="attr">id</span>: optionsArg &amp;&amp; <span class="string">'id'</span> <span class="keyword">in</span> optionsArg ? optionsArg.id : _UUID()</div><div class="line">        &#125;,</div><div class="line">            hasUserId = optionsArg &amp;&amp; <span class="string">'id'</span> <span class="keyword">in</span> optionsArg ? <span class="literal">true</span> : <span class="literal">false</span>,</div><div class="line">            nodeList = _select(selector),</div><div class="line">            players = [],</div><div class="line">            nodeListArr = [].slice.call(nodeList);<span class="comment">//解析出node节点，返回一个数组</span></div><div class="line">        _validate(options);</div><div class="line">        nodeListArr.forEach(<span class="function"><span class="keyword">function</span> (<span class="params">node, index</span>) </span>&#123;</div><div class="line">            <span class="keyword">var</span> player = node.animate(keyframes, options);</div><div class="line">            <span class="keyword">if</span> (hasUserId) &#123;</div><div class="line">                player.id = options.id + <span class="string">'-'</span> + index;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                player.id = _UUID();</div><div class="line">            &#125;</div><div class="line">            players.push(player);</div><div class="line">        &#125;);</div><div class="line">        <span class="keyword">return</span> players;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">&#125;)(<span class="built_in">window</span>.animatelo = <span class="built_in">window</span>.animatelo || &#123;&#125;);<span class="comment">//全局定义一个animatelo对象</span></div></pre></td></tr></table></figure>
-<p>可以看到，<code>_UUID()</code>和<code>_select()</code>和<code>_defaultOptions</code>是私有的，而animatelo对象是不加<code>var</code>，是要暴露在window对象中的，入口的<code>window.animatelo = window.animatelo || {}</code>参数也是说明这一点，这样当引用这一函数库是，直接使用全局对象了，Jquery也是这个思路。</p>
-<p><code>_animate()</code>是添加在animatelo对象上的，是供其他特效模块使用，它的参数是<code>selector</code>, <code>keyframes</code>, <code>optionsArg</code>。好，我们再来分析下一个特效函数的源码，以<code>zoomIn.js</code>为例：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*! Animatelo | The MIT License (MIT) | Copyright (c) 2017 GibboK */</span></div><div class="line">; (<span class="function"><span class="keyword">function</span> (<span class="params">animatelo</span>) </span>&#123;</div><div class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</div><div class="line">    <span class="string">'use strict'</span>;</div><div class="line">    animatelo.zoomIn = <span class="function"><span class="keyword">function</span> (<span class="params">selector, options</span>) </span>&#123;</div><div class="line">        <span class="keyword">var</span> keyframeset = [</div><div class="line">            &#123;</div><div class="line">                <span class="attr">opacity</span>: <span class="number">0</span>,</div><div class="line">                <span class="attr">transform</span>: <span class="string">'scale3d(.3, .3, .3)'</span>,</div><div class="line">                <span class="attr">offset</span>: <span class="number">0</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">opacity</span>: <span class="number">1</span>,</div><div class="line">                <span class="attr">transform</span>: <span class="string">'none'</span>,</div><div class="line">                <span class="attr">offset</span>: <span class="number">0.5</span></div><div class="line">            &#125;,</div><div class="line">            &#123;</div><div class="line">                <span class="attr">opacity</span>: <span class="number">1</span>,</div><div class="line">                <span class="attr">transform</span>: <span class="string">'none'</span>,</div><div class="line">                <span class="attr">offset</span>: <span class="number">1</span></div><div class="line">            &#125;</div><div class="line">        ];</div><div class="line">        <span class="keyword">return</span> animatelo._animate(selector, keyframeset, options);</div><div class="line">    &#125;</div><div class="line">&#125;)(<span class="built_in">window</span>.animatelo = <span class="built_in">window</span>.animatelo || &#123;&#125;);</div></pre></td></tr></table></figure>
-<p>看，是不是很简单！，一个IIFE的参数是<code>window.animatelo = window.animatelo || {}</code>，就是全局对象中的animatelo，在里面，给这个对象添加上zoomIn方法，参数为<code>selector</code>, <code>options</code>，这是对外暴露的api，在这个函数里面，一个<code>keyframeset</code>是实现动效的对象，之后return一个<code>animatelo._animate(selector, keyframeset, options)</code>，调用的是顶层的功能函数，这样，无论是什么特效，只要按这种思路来，分而治之，一个有趣的函数库就能搭建起来。使用的时候，是这样的，我单独用源码实验了下：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"hello"</span>&gt;</span></div><div class="line">   hello</div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./src/animatelo.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./src/zoomingExits/zoomOut.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./src/zoomingEntrances/zoomIn.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">     <span class="built_in">window</span>.animatelo.zoomIn(<span class="string">'#hello'</span>);</div><div class="line">  <span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>看！windows对象中的animatelo对象暴露出zoomIn方法，直接传入选择器参数，简洁明了。以前会用，现在也算知道怎么设计了。：）</p>
-
           
         
       
@@ -1919,7 +1924,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1997,7 +2002,7 @@
         <div class="copyright" >
   
   &copy;  2014 - 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
